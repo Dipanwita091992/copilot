@@ -1,0 +1,7 @@
+.person-container{
+    position: absolute;
+    left: 300px;
+}
+:host::ng-deep .ag-header-container{
+    background: aquamarine!important;
+}

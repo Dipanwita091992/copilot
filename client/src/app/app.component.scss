@@ -1,0 +1,20 @@
+
+/* sidenav.component.css */
+
+
+  .login-content{
+    display: flex;
+    flex-direction: column !important; /* Align items vertically */
+    justify-content: center !important;
+    align-items: center !important;
+    background-image: url('../assets/auth-background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh !important; 
+    width: 100% !important;
+  }
+.fa{
+    margin-right: 10px;
+    color:   #f1f1f1;
+}
+

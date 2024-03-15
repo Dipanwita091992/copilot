@@ -1,0 +1,56 @@
+
+.container {
+    // display: flex;
+    // flex-direction: column !important; /* Align items vertically */
+    // justify-content: center !important;
+    // align-items: center !important;
+    // background-image: url('../../assets/auth-background.jpg');
+    // background-size: cover;
+    // background-position: center;
+    // height: 100vh !important; 
+    // width: 100% !important;/* Adjust the height as needed */
+}
+
+.form {
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    align-items: center;
+}
+
+.input-field {
+    margin: 8px; /* Add spacing between fields */
+    padding: 8px;
+}
+
+.button {
+    margin-top: 10px; /* Add spacing above the button */
+}
+.title{
+    color: white;
+    text-align: center;
+    font-size: 31px;
+    font-weight: bold;
+    font-style: normal;
+}
+.caption{
+    font-size: 15px;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+    padding: 16px;
+}
+.form-field-container{
+    padding: 24px;
+    background-color: rgba(18, 61, 64, 0.25);
+    color: white;
+}
+.login-btn{
+    width: 179px;
+    height: 40px;
+    background: #39babf;
+    color: #ffffff;
+    padding: 0;
+    margin-left: 9px;
+    border: 0;
+    margin-top: 8px;
+}

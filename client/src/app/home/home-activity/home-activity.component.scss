@@ -1,0 +1,102 @@
+$historyitem-badge-size: 22px; // Adjust this value according to your needs
+
+.history-visual {
+    white-space: nowrap;
+    margin-left: 10px;
+
+    .action, .picture {
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+    }
+
+    .action {
+        border-radius: 50%;
+        font-size: 14px;
+        height: $historyitem-badge-size;
+        width: $historyitem-badge-size;
+        line-height: $historyitem-badge-size;
+        text-align: center;
+        z-index: 1;
+    }
+
+    .picture {
+        margin-left: -$historyitem-badge-size*0.4;
+        z-index: 0;
+        font-size: xx-large;
+    }
+}
+.action-phone {
+    background-color: #20c659;
+    color: white;
+}
+.action-email {
+    background-color: #428c8a;
+    color: white;
+}
+.action-profile {
+    background-color: #4867aa;
+    color: white;
+}
+.action-linkedin {
+    background-color: #0077b5;
+    color: white;
+}
+.action-skype {
+    background-color: #00aff0;
+    color: white;
+}
+
+.historyview {
+    .history-item {
+        cursor: pointer;
+
+        @media screen and (max-width: 600px) {
+            width: 50%;
+        }
+        @media screen and (max-width: 400px) {
+            width: 100%;
+        }
+    }
+
+    .history-item-wrapper {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        width: 300px;
+        max-width: 300px;
+        min-width: 300px;
+        height: 108px;
+        background-color: rgb(245, 245, 245);
+        margin: 17px;
+        cursor: pointer;
+    }
+    .history-item-wrapper:hover {
+        background-color: rgba(204, 203, 203, 0.904);
+    }
+
+    .history-details {
+        padding: 8px;
+        line-height: 1.4;
+        flex: 1;
+        width: 0;
+
+        .display {
+            display: block;
+            font-size: 15px;
+            font-weight: 600;
+            color: #4e5e5e;
+        }
+
+        .date {
+            font-size: 13px;
+        }
+    }
+    .header-actuvity{
+        margin-left:8%;
+        color: #757575;
+        font-size: 18px;
+        line-height: 1.2;
+        font: 600 16px / 20px 'Open Sans', 'Helvetica Neue', helvetica, arial, sans-serif;
+    }
+}

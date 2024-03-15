@@ -1,0 +1,32 @@
+<!-- <p>home-events works!</p> -->
+<div class="home-events">
+    <div class="toolbar">
+      <div class="segmented-button" [(ngModel)]="range">
+        <button value="upcoming"[ngClass]="{ 'selected': selected =='upcoming'}" (click)="selected = 'upcoming';handleEventClick()">Upcoming</button>
+        <button value="recent" [ngClass]="{ 'selected': selected =='recent'}" (click)="selected = 'recent';handleEventClick()">Recent</button>
+        <button value="past" [ngClass]="{ 'selected': selected =='past'}" (click)="selected = 'past';handleEventClick()">Past</button>
+      </div>
+    </div>
+    <div class="data-view-list">
+        <div class="data-view" *ngFor="let event of events">
+            <div class="event-header" [ngClass]="'type-' + event.type">
+              <div class="date">{{ event.date | date:'MMM d' }}</div>
+              <div class="title">
+                <!-- {{ getTitle(event.type) }} -->
+                  {{ event.type }}
+              </div>
+            </div>
+            <div class="event-content">
+              <div class="picture large" ><span><i class="fa fa-user fa-fw"></i></span></div>
+              <div class="details">
+                <div class="person-name">{{  getfullname(event.person )}}</div>
+                <div class="person-title">{{ event.person.title }}</div>
+                <div class="person-years">
+                  {{ getYears(event) }}
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+   
+  </div>

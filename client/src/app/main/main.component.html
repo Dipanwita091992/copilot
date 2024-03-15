@@ -1,0 +1,32 @@
+<div >
+    <nav class="sidenav" [ngClass]="{'collapse': isCollapsed}" *ngIf="currentPath != 'login'">
+      <ul class="menu-list-container">
+        <li (click)="collapse()" class="no-list-icon">
+          <i  class="toggle-btn fa fa-bars fa-fw"></i>
+       
+        </li>
+        <li class="no-list-icon"  ><a [ngClass]="{ 'selected': selected =='home'}" (click)="selected = 'home'" [routerLink]="['home']" ><span><i class="fa fa-home fa-fw"></i>
+            </span><span *ngIf="!isCollapsed">Home</span></a></li>
+        <li class="no-list-icon" ><a [ngClass]="{ 'selected': selected =='emp'}" (click)="selected = 'emp'" [routerLink]="['people']"><span><i class="fa fa-users  fa-fw"></i>
+            </span><span *ngIf="!isCollapsed">Employees</span></a></li>
+        <li class="no-list-icon" ><a [ngClass]="{ 'selected': selected =='org'}" (click)="selected = 'org'" [routerLink]="['org']"><span><i class="fa fa-sitemap fa-fw"></i>
+            </span><span *ngIf="!isCollapsed">Organization</span></a></li>
+        <li class="no-list-icon" ><a [ngClass]="{ 'selected': selected =='office'}" (click)="selected = 'office'" [routerLink]="['office']" ><span><i class="fa fa-building  fa-fw"></i>
+            </span><span *ngIf="!isCollapsed">Office</span></a></li>
+        <li class="no-list-icon" ><a [ngClass]="{ 'selected': selected =='action'}" (click)="selected = 'action'" [routerLink]="['activity']"><span><i class="fa fa-history  fa-fw"></i>
+            </span><span *ngIf="!isCollapsed">Acivity</span></a></li>
+        <!-- Add more links as needed -->
+      </ul>
+      <ul class="menu-list-container signout-profile">
+        <li class="no-list-icon" ><a [ngClass]="{ 'selected': selected =='profile'}" (click)="selected = 'profile'" ><span><i class="fa fa-user fa-fw"></i>
+        </span><span *ngIf="!isCollapsed">Dipanwita</span></a></li>
+    <li (click)="logoutUser()" class="no-list-icon"><a routerLink="/about"><span><i class="fa fa-power-off  fa-fw"></i>
+        </span><span *ngIf="!isCollapsed">Logout</span></a></li>
+      </ul>
+    </nav>
+    <!-- <app-home *ngIf="selected =='home'" style="z-index: -1;"></app-home>
+    <app-person *ngIf="selected =='emp'"></app-person> -->
+    <router-outlet ></router-outlet>
+    <!-- <router-outlet name="child1"></router-outlet> -->
+  </div>
+

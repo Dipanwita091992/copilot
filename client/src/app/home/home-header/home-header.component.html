@@ -1,0 +1,31 @@
+<div class="home-header d-flex flex-column">
+    <div class="header-message">
+      <div class="text">
+        <div class="greeting">{{getGreeting()}}</div>
+        <div class="person-name">{{loggedinUser.firstname}}</div>
+      </div>
+    </div>
+    <div class="d-flex header-info">
+      <div class="header-links d-flex">
+        <div class="item" >
+            <span class="icon fa fa-user"></span>
+          <div class="title">Manager</div>
+          <a class="link" >{{loggedinUser.organization.manager.firstname}}</a>
+        </div>
+        <div class="item" >
+          <span class="icon fa fa-sitemap"></span>
+          <div class="title">Organization</div>
+          <a class="link" >{{loggedinUser.organization.name}}</a>
+        </div>
+        <div class="item" >
+          <span class="icon fa fa-globe"></span>
+          <div class="title">Office</div>
+          <a class="link" >{{loggedinUser.office.name}}</a>
+        </div>
+      </div>
+      <div class="header-clock">
+        <div class="date">{{ getTime() | date:'fullDate' }}</div>
+        <div class="time"><span class="far fa-clock"></span> {{ getTime() | date:'shortTime' }}</div>
+      </div>
+    </div>
+  </div>

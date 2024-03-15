@@ -1,0 +1,66 @@
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #292424;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #f1f1f1;
+    display: block;
+  }
+  .collapse{
+    width: 50px !important;
+    // transition-property: width;
+    // transition-duration: 1s;
+    // transition-delay: 1s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  .no-list-icon {
+    list-style-type: none;
+    font-weight: 400;
+    font-size: 14px;
+    padding-top: 16px;
+    cursor: pointer;
+
+    :hover {
+      background: #39babf;
+    }
+  }
+  .menu-list-container{
+    padding-left: 0;
+  }
+  .no-list-icon span:hover{
+    color: #f1f1f1;
+}
+.toggle-btn{
+    font-size: xx-large;
+    margin-left:3px;
+}
+.toggle-btn:hover{
+    background: none!important;
+    color: rgb(151, 151, 144);
+    cursor: pointer;
+}
+.signout-profile{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.fa{
+    margin-right: 10px;
+    color:   #f1f1f1;
+}
+.selected{
+    background-color: #39babf;
+    
+}

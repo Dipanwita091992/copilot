@@ -1,0 +1,23 @@
+<form [formGroup]="loginForm"  class="container">
+
+    <span class="logo x-fa fa-circle-o-notch"></span>
+    <div class="title">Employee</div>
+    <div class="caption">Workspace</div>
+
+    <div class="form-field-container">
+        <div>
+            <input type="text" class="input-field" formControlName="username" id="username"  placeholder="User ID" required>
+        </div>
+
+        <div>
+
+            <input type="password" class="input-field" formControlName="password"id="password"  placeholder="Password" required>
+        </div>
+        <div>
+            <button type="submit"class="login-btn" (click)="onLoginTap()">LOG IN <span class="fa fa-angle-right " ></span></button>
+        </div>
+    </div>
+
+
+
+</form>
