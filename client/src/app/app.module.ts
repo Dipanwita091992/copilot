@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { HomeHeaderComponent } from './home/home-header/home-header.component';
 import { HomeEventsComponent } from './home/home-events/home-events.component';
-import { HttpClientModule } from '@angular/common/http'; // 
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; // 
 import { HomeActivityComponent } from './home/home-activity/home-activity.component';
 import { PersonComponent } from './person/person.component';
 import { OrganizationComponent } from './organization/organization.component';
@@ -24,6 +24,7 @@ import { BrowseComponent } from './shared/browse/browse.component';
 import { BrowseToolbarComponent } from './shared/browse-toolbar/browse-toolbar.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
+import { AuthInterceptor } from './auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,11 @@ import { MatInputModule } from '@angular/material/input';
     MatAutocompleteModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

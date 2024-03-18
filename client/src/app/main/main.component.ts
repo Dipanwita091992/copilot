@@ -23,6 +23,7 @@ export class MainComponent {
     this.isCollapsed = !this.isCollapsed;
   }
   logoutUser() {
+    localStorage.removeItem('authToken');
     this.router.navigate(['/login']);
   }
 

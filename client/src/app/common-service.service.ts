@@ -23,7 +23,6 @@ export class CommonServiceService {
    getData(payload:any):Observable<any> {
     const headers = new HttpHeaders()
     .set('Content-Type', 'application/json')
-    .set('Authorization', 'Bearer' + ' ' + this.sessionDetails.token);
     return this.http.post(this.apiUrl,payload, { headers });
 
    }

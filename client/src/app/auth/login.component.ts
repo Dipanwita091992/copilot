@@ -34,6 +34,7 @@ export class LoginComponent {
 
     }]
     this.commonservice.getLoginData(payload).subscribe((res: any) => {
+      localStorage.setItem('authToken', res[0].result.token);
       this.commonservice.sessionDetails = res[0].result;
       this.router.navigate(['/main']);
     });
