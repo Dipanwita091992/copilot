@@ -1,7 +1,8 @@
-<div >
-    <nav class="sidenav" [ngClass]="{'collapse': isCollapsed}" *ngIf="currentPath != 'login'">
+<div *ngIf="currentPath != 'login'">
+ 
+    <nav class="sidenav" [ngClass]="{'collapse': isCollapsed}" >
       <ul class="menu-list-container">
-        <li (click)="collapse()" class="no-list-icon">
+        <li (click)="collapse()" class="no-list-icon no-toggle">
           <i  class="toggle-btn fa fa-bars fa-fw"></i>
        
         </li>

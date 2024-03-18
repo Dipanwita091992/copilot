@@ -1,0 +1,20 @@
+<div style="display: flex;">
+    <select [ngClass]="{'default':selectedOptionOffice == ''}" [(ngModel)]="selectedOptionOffice" (change)="filterOffice()" *ngIf="viewType == 'people'">
+        <option value="" disabled selected>All Offices</option>
+        <option *ngFor="let option of officeLists" [value]="option.value">{{ option.label }}</option>
+    </select>
+    <select [ngClass]="{'default':selectedOptionOrg == ''}" [(ngModel)]="selectedOptionOrg" (change)="filterOrg()" *ngIf="viewType == 'people'">
+        <option value="" disabled selected>All Organization</option>
+        <option *ngFor="let option of orgLists" [value]="option.value">{{ option.label }}</option>
+    </select>
+    <div >
+        <button class="btn undo-btn"><i class="fa fa-undo"></i></button>
+    </div>
+    <div >
+        <button class="btn sync-btn"><i class="fa fa-sync"></i></button>
+    </div>
+    <div >
+        <button class="btn plus-btn"><span><i class="fa fa plus"></i></span>Create</button>
+    </div>
+
+</div>

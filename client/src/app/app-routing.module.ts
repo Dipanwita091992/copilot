@@ -15,7 +15,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'main', component: MainComponent ,
   children: [
-    { path: '', redirectTo: 'people', pathMatch: 'full'  } ,
+    { path: '', redirectTo: 'home', pathMatch: 'full'  } ,
     { path: 'home', component: HomeComponent },
     { path: 'people',component: PersonComponent  },
     { path: 'org',component: OrganizationComponent },

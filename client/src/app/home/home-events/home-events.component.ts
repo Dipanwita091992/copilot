@@ -36,7 +36,7 @@ export class HomeEventsComponent {
       payload[0].data.push({ limit: 8, page: 1, start: 0, filter: [{ property: 'startDate', value: sevenDaysAgo },{ property: 'endDate', value: upcomingDay }], sort: [{ property: "date", direction: 'DESC'}], })
     }
 
-    this.commonservice.getEventsData(payload).subscribe((res: any) => {
+    this.commonservice.getData(payload).subscribe((res: any) => {
       this.events = res[0].result.data;
     });
   }

@@ -14,7 +14,13 @@ export class CommonServiceService {
     
    }
 
-   getEventsData(payload:any):Observable<any> {
+   getLoginData(payload:any):Observable<any> {
+    const headers = new HttpHeaders()
+    .set('Content-Type', 'application/json');
+    return this.http.post(this.apiUrl,payload, { headers });
+   }
+
+   getData(payload:any):Observable<any> {
     const headers = new HttpHeaders()
     .set('Content-Type', 'application/json')
     .set('Authorization', 'Bearer' + ' ' + this.sessionDetails.token);

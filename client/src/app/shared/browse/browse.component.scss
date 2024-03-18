@@ -1,0 +1,34 @@
+input{
+    font: 300 13px / 17px 'Open Sans', 'Helvetica Neue', helvetica, arial, sans-serif;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 11px;
+    padding-left: 25px;
+    min-height: 17px;
+    background-color: transparent;
+    color: inherit;
+    outline: none;
+    border: 0;
+    margin: 0;
+    width: 0;
+    flex: 1 1 auto;
+    box-sizing: content-box;
+    border: 1px solid #ccc;
+    flex-grow: 1;
+    flex-shrink: 1;
+    width:100px;
+
+
+}
+input:focus{
+    border: 0 0 3px 0 solid #39babf;
+    box-shadow: 0 0 0 1px #39babf;
+}
+.fa-search{
+    position: absolute;
+    top: 21px;
+    left: 8px;
+    transform: translateY(-50%);
+    color: #aaa;
+    
+}

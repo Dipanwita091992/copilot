@@ -5,7 +5,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #292424;
+    background-color: #353535;
   }
   
   .sidenav a {
@@ -38,6 +38,7 @@
   }
   .menu-list-container{
     padding-left: 0;
+    margin-top: 0%;
   }
   .no-list-icon span:hover{
     color: #f1f1f1;
@@ -63,4 +64,8 @@
 .selected{
     background-color: #39babf;
     
+}
+.no-toggle{
+    width: 50px !important;
+    transition: width 1s;
 }

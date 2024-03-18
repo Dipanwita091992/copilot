@@ -15,35 +15,30 @@ export class LoginComponent {
     username: new FormControl('dipanwita.c'),
     password: new FormControl('wvyrEDvxI')
   });
-  apiUrl = 'http://localhost:3000/api';
   currentPath: string | undefined;
-constructor(private router: Router,private route: ActivatedRoute,
-  private commonservice:CommonServiceService,private http: HttpClient){}
-ngAfterViewInit() {
-    
-  this.route.url.subscribe(segments => {
-    this.currentPath = segments.map(segment => segment.path).join('/');
-   this.commonservice.currentPath=this.currentPath;
- });
-}
+  constructor(private router: Router, private route: ActivatedRoute,
+    private commonservice: CommonServiceService, private http: HttpClient) { }
+  ngAfterViewInit() {
 
-onLoginTap() {
-  const headers = new HttpHeaders()
-  .set('Content-Type', 'application/json')
-let payload = [{
-  action: "auth", 
- // data:[{username: this.loginForm.get('username')?.value, password: this.loginForm.get('password')?.value}] ,
- data:[{username: 'dipanwita.c', password: 'wvyrEDvxI'}],
-  method: "login",
+    this.route.url.subscribe(segments => {
+      this.currentPath = segments.map(segment => segment.path).join('/');
+      this.commonservice.currentPath = this.currentPath;
+    });
+  }
 
-}]
- this.http.post(this.commonservice.apiUrl,payload, { headers },).subscribe((res:any) => {
-  console.log(res);
-  this.commonservice.sessionDetails=res[0].result;
-  this.router.navigate(['/main']);
- });
-  
-}
+  onLoginTap() {
+    let payload = [{
+      action: "auth",
+      data: [{ username: this.loginForm.get('username')?.value, password: this.loginForm.get('password')?.value }],
+      method: "login",
+
+    }]
+    this.commonservice.getLoginData(payload).subscribe((res: any) => {
+      this.commonservice.sessionDetails = res[0].result;
+      this.router.navigate(['/main']);
+    });
+
+  }
 
 
 

@@ -10,7 +10,7 @@ import { CommonServiceService } from '../common-service.service';
 export class MainComponent {
   currentPath:string='';
   selected:string='home';
-  public isCollapsed = false;
+  public isCollapsed = true;
   constructor(private router: Router,private route: ActivatedRoute,private commonservice:CommonServiceService){}
   ngAfterViewInit() {
     

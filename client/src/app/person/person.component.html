@@ -1,17 +1,12 @@
 <div class="person-container">
-    <div style="height: 50px;">
-<button (click)="filter()">filter</button>
-    </div>
-    <ag-grid-angular
-    style="width: 80vw; height: 100vh;"
-    class="ag-theme-alpine"
-    [rowData]="peopleData"
-    [columnDefs]="columnDefs"
-    [autoGroupColumnDef]="autoGroupColumnDef"
-    [groupHeaderHeight]="50"
-    [animateRows]="true"
-    [gridOptions]="gridOptions"
-    [pagination]="true"
-    (gridReady)="onGridReady($event)"
-  ></ag-grid-angular>
+  <div class="title">
+    <h2 style="margin: 0%;" >Employees</h2>
+  </div>
+  <div class="header-people">
+    <app-browse (searchEvent)="handleSearch($event)"></app-browse>
+    <app-browse-toolbar [officeLists]="filterOfficelist" [orgLists]="filterOrglist" [viewType]="viewType"(selectedOrg)="handleOrgSelect($event)" (selectedOffice)="handleOfficeSelect($event)"></app-browse-toolbar>
+  </div>
+  <ag-grid-angular  class="ag-theme-alpine" [rowData]="peopleData"[suppressRowClickSelection]="true"
+    [columnDefs]="columnDefs" [autoGroupColumnDef]="autoGroupColumnDef" [groupHeaderHeight]="50" [animateRows]="true"
+    [gridOptions]="gridOptions" [pagination]="true" (gridReady)="onGridReady($event)"></ag-grid-angular>
 </div>

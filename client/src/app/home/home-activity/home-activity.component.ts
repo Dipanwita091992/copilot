@@ -23,7 +23,7 @@ export class HomeActivityComponent {
     }]
  
 
-    this.commonservice.getEventsData(payload).subscribe((res: any) => {
+    this.commonservice.getData(payload).subscribe((res: any) => {
       this.activityData = res[0].result.data;
     });
   }

@@ -9,17 +9,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  apiUrl = 'http://localhost:3000/api';
   title = 'migration-angular-coworkee';
   public currentPath: string = '';
 
   constructor(private router: Router, private route: ActivatedRoute, private http: HttpClient,
     private commonservice: CommonServiceService, private cdr: ChangeDetectorRef) {
     this.router.navigate(['/login']);
-    //  console.log(this.getData());
-    // this.getData().subscribe((data) => {
-    //   console.log(data);
-    // });
 
   }
   ngAfterViewChecked() {
@@ -29,19 +24,5 @@ export class AppComponent {
  
 
   getData() {
-    let payload = [{
-      action: "people", 
-      data:[{field:"office_id",label: "office.name"}],
-      method: "filters",
-      tid: 60,
-      type: "rpc"
-    },{
-      action: "people", 
-      data:[{field: "organization_id", label: "organization.name"}],
-      method: "filters",
-      tid: 61,
-      type: "rpc"
-    }]
-    return this.http.post(this.apiUrl,payload);
   }
 }

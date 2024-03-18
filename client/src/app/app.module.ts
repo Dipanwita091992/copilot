@@ -20,7 +20,10 @@ import { OrganizationComponent } from './organization/organization.component';
 import { OfficeComponent } from './office/office.component';
 import { HistoryComponent } from './history/history.component';
 import { AgGridModule } from 'ag-grid-angular';
-
+import { BrowseComponent } from './shared/browse/browse.component';
+import { BrowseToolbarComponent } from './shared/browse-toolbar/browse-toolbar.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import { AgGridModule } from 'ag-grid-angular';
     PersonComponent,
     OrganizationComponent,
     OfficeComponent,
-    HistoryComponent
+    HistoryComponent,
+    BrowseComponent,
+    BrowseToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,9 @@ import { AgGridModule } from 'ag-grid-angular';
     MatSidenavModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AgGridModule
+    AgGridModule,
+    MatAutocompleteModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
