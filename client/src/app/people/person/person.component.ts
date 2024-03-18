@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef, GridOptions } from 'ag-grid-community';
-import { CommonServiceService } from '../common-service.service';
-import { Person } from '../shared/models/person';
+import { CommonServiceService } from '../../common-service.service';
+import { Person } from '../../shared/models/person';
+
 
 @Component({
   selector: 'app-person',

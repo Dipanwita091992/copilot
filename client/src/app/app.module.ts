@@ -15,16 +15,14 @@ import { HomeHeaderComponent } from './home/home-header/home-header.component';
 import { HomeEventsComponent } from './home/home-events/home-events.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; // 
 import { HomeActivityComponent } from './home/home-activity/home-activity.component';
-import { PersonComponent } from './person/person.component';
 import { OrganizationComponent } from './organization/organization.component';
 import { OfficeComponent } from './office/office.component';
 import { HistoryComponent } from './history/history.component';
-import { AgGridModule } from 'ag-grid-angular';
-import { BrowseComponent } from './shared/browse/browse.component';
-import { BrowseToolbarComponent } from './shared/browse-toolbar/browse-toolbar.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { AuthInterceptor } from './auth-interceptor.service';
+import { PeopleModule } from './people/people.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -35,12 +33,11 @@ import { AuthInterceptor } from './auth-interceptor.service';
     HomeHeaderComponent,
     HomeEventsComponent,
     HomeActivityComponent,
-    PersonComponent,
+
     OrganizationComponent,
     OfficeComponent,
     HistoryComponent,
-    BrowseComponent,
-    BrowseToolbarComponent
+
   ],
   imports: [
     BrowserModule,
@@ -51,9 +48,10 @@ import { AuthInterceptor } from './auth-interceptor.service';
     MatSidenavModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AgGridModule,
     MatAutocompleteModule,
-    MatInputModule
+    MatInputModule,
+    PeopleModule,
+    SharedModule
   ],
   providers: [  {
     provide: HTTP_INTERCEPTORS,

@@ -4,10 +4,12 @@ import { LoginComponent } from './auth/login.component';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
-import { PersonComponent } from './person/person.component';
 import { HistoryComponent } from './history/history.component';
 import { OfficeComponent } from './office/office.component';
 import { OrganizationComponent } from './organization/organization.component';
+import { PeopleModule } from './people/people.module';
+import { SharedModule } from './shared/shared.module';
+import { PersonComponent } from './people/person/person.component';
 
 
 export const routes: Routes = [
@@ -28,7 +30,9 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+    SharedModule,
+    PeopleModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
