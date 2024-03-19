@@ -1,9 +1,8 @@
 <div *ngIf="currentPath != 'login'">
- 
     <nav class="sidenav" [ngClass]="{'collapse': isCollapsed}" >
       <ul class="menu-list-container">
-        <li (click)="collapse()" class="no-list-icon no-toggle">
-          <i  class="toggle-btn fa fa-bars fa-fw"></i>
+        <li (click)="collapse()" class="no-list-icon" style="padding: 16px;">
+          <i  class="toggle-btn fa fa-bars"></i>
        
         </li>
         <li class="no-list-icon"  ><a [ngClass]="{ 'selected': selected =='home'}" (click)="selected = 'home'" [routerLink]="['home']" ><span><i class="fa fa-home fa-fw"></i>

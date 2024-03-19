@@ -9,7 +9,7 @@
   }
   
   .sidenav a {
-    padding: 8px 8px 8px 16px;
+    padding: 16px 16px 16px 16px;
     text-decoration: none;
     font-size: 18px;
     color: #f1f1f1;
@@ -29,11 +29,10 @@
     list-style-type: none;
     font-weight: 400;
     font-size: 14px;
-    padding-top: 16px;
     cursor: pointer;
 
     :hover {
-      background: #39babf;
+      background: #424242;
     }
   }
   .menu-list-container{
@@ -44,8 +43,7 @@
     color: #f1f1f1;
 }
 .toggle-btn{
-    font-size: xx-large;
-    margin-left:3px;
+    font-size: x-large;
 }
 .toggle-btn:hover{
     background: none!important;

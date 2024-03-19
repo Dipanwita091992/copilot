@@ -5,7 +5,7 @@ $neutral-medium-dark-color: #757575;
     .header-message {
         color: $base-color;
         font-size: 32px;
-        padding: 8vh 16px 6vh 16px;
+        padding: 8vh 0px 6vh 16px;
         text-align: center;
 
         .greeting, .person-name {
@@ -15,6 +15,7 @@ $neutral-medium-dark-color: #757575;
 
         .greeting {
             white-space: nowrap;
+            font-weight: 300;
         }
 
         .person-name {
@@ -39,6 +40,7 @@ $neutral-medium-dark-color: #757575;
         padding: 0 16px;
         max-width: 70%;
         margin-left: 18%;
+        margin-bottom: 15px;
         &::before {
             // @include single-box-shadow;
             box-shadow: 0 0 1px 0.5px rgba(0, 0, 0, 0.2);
@@ -69,8 +71,8 @@ $neutral-medium-dark-color: #757575;
             border: 4px solid white;
             display: block;
             margin: 0 auto 4px auto;
-            height: 54px;
-            width: 54px;
+            height: 48px;
+            width: 48px;
             color:white
         }
         .img-user{
@@ -147,5 +149,6 @@ $neutral-medium-dark-color: #757575;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        column-gap: 30px;
     }
 }
