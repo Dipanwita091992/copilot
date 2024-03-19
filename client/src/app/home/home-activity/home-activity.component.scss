@@ -63,12 +63,12 @@ $historyitem-badge-size: 22px; // Adjust this value according to your needs
         align-items: center;
         display: flex;
         flex-direction: row;
-        width: 300px;
-        max-width: 300px;
+        width: 333px;
+        max-width: 333px;
         min-width: 300px;
-        height: 108px;
+        height: 55px;
         background-color: rgb(245, 245, 245);
-        margin: 17px;
+        // margin: 12px;
         cursor: pointer;
     }
     .history-item-wrapper:hover {

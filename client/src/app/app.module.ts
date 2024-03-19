@@ -15,7 +15,6 @@ import { HomeHeaderComponent } from './home/home-header/home-header.component';
 import { HomeEventsComponent } from './home/home-events/home-events.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; // 
 import { HomeActivityComponent } from './home/home-activity/home-activity.component';
-import { OrganizationComponent } from './organization/organization.component';
 import { OfficeComponent } from './office/office.component';
 import { HistoryComponent } from './history/history.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -23,6 +22,7 @@ import { MatInputModule } from '@angular/material/input';
 import { AuthInterceptor } from './auth-interceptor.service';
 import { PeopleModule } from './people/people.module';
 import { SharedModule } from './shared/shared.module';
+import { OrganizationModule } from './organization/organization.module';
 
 @NgModule({
   declarations: [
@@ -33,8 +33,6 @@ import { SharedModule } from './shared/shared.module';
     HomeHeaderComponent,
     HomeEventsComponent,
     HomeActivityComponent,
-
-    OrganizationComponent,
     OfficeComponent,
     HistoryComponent,
 
@@ -51,7 +49,8 @@ import { SharedModule } from './shared/shared.module';
     MatAutocompleteModule,
     MatInputModule,
     PeopleModule,
-    SharedModule
+    SharedModule,
+    OrganizationModule
   ],
   providers: [  {
     provide: HTTP_INTERCEPTORS,

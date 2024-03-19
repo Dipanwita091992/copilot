@@ -10,9 +10,12 @@ export class BrowseToolbarComponent {
   @Input() selectedOptionOrg: string = '';
   @Input() officeLists: any = [];
   @Input() orgLists: any = [];
+  @Input() managerList: any = [];
   @Input() viewType: string = '';
   @Output() selectedOffice = new EventEmitter<string>();
   @Output() selectedOrg = new EventEmitter<string>();
+  @Output() handleManagerSelect = new EventEmitter<string>();
+  selectedOptionManager: string = '';
 
   constructor() { }
   filterOffice() {
@@ -20,6 +23,9 @@ export class BrowseToolbarComponent {
   }
   filterOrg() {
     this.selectedOrg.emit(this.selectedOptionOrg);
+  }
+  filterManager() {
+    this.handleManagerSelect.emit(this.selectedOptionManager);
   }
 
 }

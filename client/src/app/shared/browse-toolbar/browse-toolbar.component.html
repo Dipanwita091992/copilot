@@ -7,6 +7,10 @@
         <option value="" disabled selected>All Organization</option>
         <option *ngFor="let option of orgLists" [value]="option.value">{{ option.label }}</option>
     </select>
+    <select [ngClass]="{'default':selectedOptionManager == ''}" [(ngModel)]="selectedOptionManager" (change)="filterManager()" *ngIf="viewType == 'org'">
+        <option value="" disabled selected>All Managers</option>
+        <option *ngFor="let option of managerList" [value]="option.value">{{ option.label }}</option>
+    </select>
     <div >
         <button class="btn undo-btn"><i class="fa fa-undo"></i></button>
     </div>

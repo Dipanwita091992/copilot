@@ -8,20 +8,20 @@ $base-light-color: #83efef;
 
     .data-view-list {
         position: absolute;
-        left: 21%;
+        left: 18%;
         /* flex-direction: column; */
         display: flex;
-        width: 650px;
+        width: 697px;
         flex-wrap: wrap;
     }
 
     .data-view {
-        width: 300px;
-        max-width: 300px;
+        width: 333px;
+        max-width: 333px;
         min-width: 300px;
         height: 108px;
         background-color: rgb(245, 245, 245);
-        margin: 10px;
+        margin: 5px;
         cursor: pointer;
 
     }
@@ -108,7 +108,6 @@ $base-light-color: #83efef;
     .segmented-button {
         display: flex;
         margin-left: 250%;
-        margin-bottom: 10%;
     }
 
     .segmented-button button {
