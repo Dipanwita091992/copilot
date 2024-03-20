@@ -23,6 +23,8 @@ import { AuthInterceptor } from './auth-interceptor.service';
 import { PeopleModule } from './people/people.module';
 import { SharedModule } from './shared/shared.module';
 import { OrganizationModule } from './organization/organization.module';
+import { OfficeModule } from './office/office.module';
+import { ActivityModule } from './activity/activity.module';
 
 @NgModule({
   declarations: [
@@ -33,9 +35,8 @@ import { OrganizationModule } from './organization/organization.module';
     HomeHeaderComponent,
     HomeEventsComponent,
     HomeActivityComponent,
-    OfficeComponent,
     HistoryComponent,
-
+    
   ],
   imports: [
     BrowserModule,
@@ -50,7 +51,9 @@ import { OrganizationModule } from './organization/organization.module';
     MatInputModule,
     PeopleModule,
     SharedModule,
-    OrganizationModule
+    OrganizationModule,
+    OfficeModule,
+    ActivityModule
   ],
   providers: [  {
     provide: HTTP_INTERCEPTORS,

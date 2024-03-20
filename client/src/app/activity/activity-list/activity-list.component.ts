@@ -1,22 +1,17 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef, GridOptions } from 'ag-grid-community';
+import { Component } from '@angular/core';
 import { CommonServiceService } from '../../common-service.service';
-import { Person } from '../../shared/models/person';
-import { OrgCellRendererComponent } from '../cellRendereCustomComponent';
-
+import { ColDef, GridOptions } from 'ag-grid-community';
 
 @Component({
-  selector: 'app-person',
-  templateUrl: './person.component.html',
-  styleUrl: './person.component.scss'
+  selector: 'app-activity-list',
+  templateUrl: './activity-list.component.html',
+  styleUrl: './activity-list.component.scss'
 })
-export class PersonComponent implements OnInit {
-  private gridApi: any;
+export class ActivityListComponent {
   private gridColumnApi: any;
   groupDefaultExpanded = 1;
   color = '#39babf';
-  viewType = 'people';
+  viewType = 'activity';
   gridOptions: GridOptions = {
     defaultColDef: {
       sortable: true,
@@ -36,23 +31,27 @@ export class PersonComponent implements OnInit {
       return undefined; // Add a return statement to handle the case when the condition is not met.
     },
   }
-  components = {
-    OrgCellRendererComponent: OrgCellRendererComponent,
-  }
-  peopleData: Person[]= [];
+  actionListData: any[] = [];
+  countryList: any;
+  gridApi: any;
   filterOfficelist: any;
   filterOrglist: any;
+  filterEmplist: any;
+  filterActionTypelist: any;
+
   constructor(private commonservice: CommonServiceService) { }
   ngOnInit(): void {
-    this.getpeopleData();
+    this.getActivityData();
     this.getFilterDataforOffice();
     this.getFilterDataforOrg();
+    this.getFilterDataforEmploees();
+    this.getFilterDataforActionTypes();
   }
-  getpeopleData(payloadArg?: any) {
+  getActivityData(payloadArg?: any) {
     let payload;
     if (!payloadArg) {
       payload = [{
-        action: "people",
+        action: "actions",
         data: [
           {
             page: 1,
@@ -64,8 +63,8 @@ export class PersonComponent implements OnInit {
             },
             sort: [
               {
-                "property": "lastname",
-                "direction": "ASC"
+                "property": "created",
+                "direction": "DESC"
               }
             ]
           }
@@ -79,45 +78,75 @@ export class PersonComponent implements OnInit {
 
 
     this.commonservice.getData(payload).subscribe((res: any) => {
-      this.peopleData = res[0].result.data;
+      this.actionListData = res[0].result.data;
     });
   }
-  getFilterDataforOffice(){
+
+  getFilterDataforOffice() {
     let payload = [{
-      action: "people",
+      action: "actions",
       data: [
-        {field: "office_id", label: "office.name"}
+        { field: "recipient.office_id", label: "recipient.office.name" }
       ],
       method: "filters",
     }]
     this.commonservice.getData(payload).subscribe((res: any) => {
       this.filterOfficelist = res[0].result.data
     });
-   
+
 
   }
-  getFilterDataforOrg(){
+  getFilterDataforOrg() {
     let payload = [{
-      action: "people",
+      action: "actions",
       data: [
-        {field: "organization_id", label: "organization.name"}
+        { field: "recipient.organization_id", label: "recipient.organization.name" }
       ],
       method: "filters",
     }]
     this.commonservice.getData(payload).subscribe((res: any) => {
       this.filterOrglist = res[0].result.data
     });
-   
+
+
+  }
+  getFilterDataforEmploees() {
+    let payload = [{
+      action: "actions",
+      data: [
+        { field: "recipient_id", label: ["recipient.firstname", "recipient.lastname"] }
+      ],
+      method: "filters",
+    }]
+    this.commonservice.getData(payload).subscribe((res: any) => {
+      this.filterEmplist = res[0].result.data
+    });
+
+
+  }
+  getFilterDataforActionTypes() {
+    let payload = [{
+      action: "actions",
+      data: [{ field: "type" }]
+      ,
+      method: "filters",
+    }]
+    this.commonservice.getData(payload).subscribe((res: any) => {
+      this.filterActionTypelist = res[0].result.data
+    });
+
 
   }
 
   columnDefs: any[] = [
     { headerName: 'Name/Title', field: 'firstname', width: 350, headerClass: 'custom-header-class', cellRenderer: this.nameCellRenderer.bind(this), enableRowGroup: true, rowGroup: true },
     {
-      headerName: 'Oraganization', field: 'organization.name', width: 350, cellRenderer: "OrgCellRendererComponent",
+      headerName: 'Organization', field: 'organization.name', width: 350, cellRenderer: this.orgCellRenderer.bind(this)
     },
     { headerName: 'Office', field: 'office.name', width: 350, cellRenderer: this.officeCellRenderer.bind(this) },
-    { headerName: 'Email', field: 'email', width: 400, cellRenderer: this.contactCellRenderer.bind(this) }
+    {
+      headerName: 'Date', field: 'created', width: 370,
+    },
   ];
   public autoGroupColumnDef: ColDef = {
     minWidth: 200,
@@ -129,7 +158,7 @@ export class PersonComponent implements OnInit {
   }
   filter(value: any, type: string) {
     let payload = [{
-      action: "people",
+      action: "actions",
       data: [
         {
           "page": 1,
@@ -141,7 +170,7 @@ export class PersonComponent implements OnInit {
           },
           "sort": [
             {
-              "property": "lastname",
+              "property": "name",
               "direction": "ASC"
             }
           ],
@@ -155,11 +184,23 @@ export class PersonComponent implements OnInit {
       ],
       method: "list",
     }]
-    this.getpeopleData(payload);
+    this.getActivityData(payload);
 
   }
-  handleOfficeSelect(val: any) {
-    this.filter(val, 'officeId');
+  handleActionTypeSelect(val: any) {
+    this.filter(val, 'type');
+
+  }
+  handleActionEmpSelect(val: any) {
+    this.filter(val, 'recipient_id');
+
+  }
+  handleActionOrgSelect(val: any) {
+    this.filter(val, 'recipient.organization_id');
+
+  }
+  handleActionOfficeSelect(val: any) {
+    this.filter(val, 'recipient.office_id');
 
   }
   handleSearch(value: any) {
@@ -167,36 +208,31 @@ export class PersonComponent implements OnInit {
 
   }
   nameCellRenderer(params: any) {
+    const name = params.data.recipient.firstname + ' ' + params.data.recipient.lastname;
+    return `<h4 style="color: ${this.color};margin:0;padding:0;font-weight: 500;font-family: inherit;">${name}</h4>
+    <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;">${params.data.recipient.title}</h5>`;
 
-    let fullName = params.data.firstname + ' ' + params.data.lastname;
-    //return params.data.firstname + ' ' + params.data.lastname +'uuu';
-    return `<h4 style="color: ${this.color};margin:0;padding:0;font-weight: 500;font-family: inherit;">${fullName}</h4>
-    <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;">${params.data.title}</h5>`;
   }
   orgCellRenderer(params: any) {
-    const label = 'Managed by '
-    const manager = params.data.organization.manager.firstname + ' ' + params.data.organization.manager.lastname;
+
     return `  <style>
     .hover-effect:hover {
       text-decoration: underline;
       cursor: pointer;
     }
-  </style><h4 class="hover-effect"  style="cursor: pointer;color: ${this.color};margin:0;padding:0;font-weight: 500;font-family: inherit;">${params.data.organization.name}</h4>
-    <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;">${label} <span style="color: ${this.color};">${manager}<span></h5>`;
+  </style><h4 class="hover-effect"  style="color: ${this.color};cursor: pointer;;margin:0;padding:0;font-weight: 500;font-family: inherit;">${params.data.recipient.organization.name}</h4>
+    </h5>`;
   }
   handleClickOrg(params: any, type: string) {
     console.log(params, type);
   }
   officeCellRenderer(params: any) {
-    return `<h4 style="color: ${this.color};margin:0;padding:0;font-weight: 500;font-family: inherit;">${params.data.office.name}</h4>
-    <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;">${params.data.office.city},${params.data.office.country}</h5>`;
-  }
-  contactCellRenderer(params: any) {
-    return `<h4 style="margin:0;padding:0;font-size: 14px;font-family: inherit;">${params.data.email}</h4>
-       <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;">${params.data.phone}</h5>`;
-  }
-  handleOrgSelect(val: any) {
-    this.filter(val, 'organizationId');
+    return `<h4 style="color: ${this.color};margin:0;padding:0;font-weight: 500;font-family: inherit;">${params.data.recipient.office.name}</h4>
+    <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;">${params.data.recipient.office.city},${params.data.recipient.office.country}</h5>`;
   }
 
+
 }
+
+
+

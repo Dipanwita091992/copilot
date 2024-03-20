@@ -7,7 +7,7 @@ $base-light-color: #83efef;
 .home-events {
 
     .data-view-list {
-        position: absolute;
+        // position: absolute;
         left: 18%;
         /* flex-direction: column; */
         display: flex;
@@ -27,7 +27,7 @@ $base-light-color: #83efef;
     }
 
     .data-view:hover {
-        background-color: rgba(204, 203, 203, 0.904);
+        background-color: rgba(226, 222, 222, 0.904);
     }
 
     .event-header {
@@ -35,7 +35,7 @@ $base-light-color: #83efef;
         color: $neutral-dark-color;
         display: inline-block;
         font-size: 12px;
-        padding: 6px 16px;
+        padding: 3px 16px;
 
         .date,
         .title {
@@ -107,7 +107,10 @@ $base-light-color: #83efef;
 
     .segmented-button {
         display: flex;
-        margin-left: 255%;
+    }
+    .toolbar{
+    display: flex;
+    justify-content: center;
     }
 
     .segmented-button button {

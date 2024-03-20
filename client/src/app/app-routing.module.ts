@@ -10,6 +10,7 @@ import { OrganizationComponent } from './organization/organization.component';
 import { PeopleModule } from './people/people.module';
 import { SharedModule } from './shared/shared.module';
 import { PersonComponent } from './people/person/person.component';
+import { ActivityListComponent } from './activity/activity-list/activity-list.component';
 
 
 export const routes: Routes = [
@@ -22,7 +23,7 @@ export const routes: Routes = [
     { path: 'people',component: PersonComponent  },
     { path: 'org',component: OrganizationComponent },
     { path: 'office',component: OfficeComponent },
-    { path: 'activity',component: HistoryComponent }
+    { path: 'activity',component: ActivityListComponent }
     // Add more child routes as needed
   ]
 },
