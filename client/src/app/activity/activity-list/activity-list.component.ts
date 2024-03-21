@@ -156,7 +156,7 @@ export class ActivityListComponent {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
   }
-  filter(value: any, type: string) {
+  filter(value: any) {
     let payload = [{
       action: "actions",
       data: [
@@ -170,16 +170,11 @@ export class ActivityListComponent {
           },
           "sort": [
             {
-              "property": "name",
+              "property": "created",
               "direction": "ASC"
             }
           ],
-          "filter": [
-            {
-              "property": type,
-              "value": value
-            }
-          ]
+          "filter": value
         }
       ],
       method: "list",
@@ -188,23 +183,23 @@ export class ActivityListComponent {
 
   }
   handleActionTypeSelect(val: any) {
-    this.filter(val, 'type');
+    this.filter(val);
 
   }
   handleActionEmpSelect(val: any) {
-    this.filter(val, 'recipient_id');
+    this.filter(val);
 
   }
   handleActionOrgSelect(val: any) {
-    this.filter(val, 'recipient.organization_id');
+    this.filter(val);
 
   }
   handleActionOfficeSelect(val: any) {
-    this.filter(val, 'recipient.office_id');
+    this.filter(val);
 
   }
   handleSearch(value: any) {
-    this.filter(value, '#search');
+    this.filter(value);
 
   }
   nameCellRenderer(params: any) {
@@ -229,6 +224,12 @@ export class ActivityListComponent {
   officeCellRenderer(params: any) {
     return `<h4 style="color: ${this.color};margin:0;padding:0;font-weight: 500;font-family: inherit;">${params.data.recipient.office.name}</h4>
     <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;">${params.data.recipient.office.city},${params.data.recipient.office.country}</h5>`;
+  }
+  resetFilter() {
+    this.getActivityData();
+  }
+  refreshData(data:any) {
+    this.filter(data);
   }
 
 

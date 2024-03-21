@@ -127,7 +127,7 @@ export class PersonComponent implements OnInit {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
   }
-  filter(value: any, type: string) {
+  filter(value: any) {
     let payload = [{
       action: "people",
       data: [
@@ -145,12 +145,7 @@ export class PersonComponent implements OnInit {
               "direction": "ASC"
             }
           ],
-          "filter": [
-            {
-              "property": type,
-              "value": value
-            }
-          ]
+          "filter": value
         }
       ],
       method: "list",
@@ -159,11 +154,11 @@ export class PersonComponent implements OnInit {
 
   }
   handleOfficeSelect(val: any) {
-    this.filter(val, 'officeId');
+    this.filter(val);
 
   }
   handleSearch(value: any) {
-    this.filter(value, '#search');
+    this.filter(value);
 
   }
   nameCellRenderer(params: any) {
@@ -196,7 +191,13 @@ export class PersonComponent implements OnInit {
        <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;">${params.data.phone}</h5>`;
   }
   handleOrgSelect(val: any) {
-    this.filter(val, 'organizationId');
+    this.filter(val);
+  }
+  resetFilter() {
+    this.getpeopleData();
+  }
+  refreshData(data:any) {
+    this.filter(data);
   }
 
 }

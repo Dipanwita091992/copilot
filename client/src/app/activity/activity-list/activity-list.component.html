@@ -5,7 +5,7 @@
     <div class="header-org">
       <app-browse (searchEvent)="handleSearch($event)"></app-browse>
       <app-browse-toolbar [actionList]="filterActionTypelist" [orgLists]="filterOrglist"[officeLists]="filterOfficelist" [employeeList]="filterEmplist" [viewType]="viewType"(handleActionTypeSelect)="handleActionTypeSelect($event)" (handleActionEmpSelect)="handleActionEmpSelect($event)"
-      (selectedOrg)="handleActionOrgSelect($event)" (selectedOffice)="handleActionOfficeSelect($event)" ></app-browse-toolbar>
+      (selectedOrg)="handleActionOrgSelect($event)" (selectedOffice)="handleActionOfficeSelect($event)" (resetFilter)="resetFilter()" (refreshData)="refreshData($event)"></app-browse-toolbar>
     </div>
     <ag-grid-angular  class="ag-theme-alpine" [rowData]="actionListData"[suppressRowClickSelection]="true"
       [columnDefs]="columnDefs" [autoGroupColumnDef]="autoGroupColumnDef" [groupHeaderHeight]="50" [animateRows]="true"

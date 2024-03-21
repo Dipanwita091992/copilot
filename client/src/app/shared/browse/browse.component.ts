@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { debounce } from 'rxjs';
+import { filter } from '../models/filter';
+import { CommonServiceService } from '../../common-service.service';
 
 @Component({
   selector: 'app-browse',
@@ -9,18 +11,26 @@ import { debounce } from 'rxjs';
 export class BrowseComponent {
   searchText: string = '';
   @Output() searchEvent = new EventEmitter<string>();
+  filterList: any = [];
 
 
-
-  constructor() { }
+  constructor(private commonService:CommonServiceService) { }
 
   ngOnInit(): void {
+    this.commonService.resetEvent$.subscribe((data: any) => {
+      this.searchText = '';
+    });
+  
   } 
   handleSeachBrowse(e:any) {
    // let timeoutId: any;
    //   clearTimeout(timeoutId);
    // timeoutId = setTimeout(() => {
-      this.searchEvent.emit(this.searchText);
+    let filterObj
+
+    filterObj = new filter('#search', this.searchText);
+    this.filterList.push(filterObj);
+      this.searchEvent.emit(this.filterList);
    // }, 0);
   }
 

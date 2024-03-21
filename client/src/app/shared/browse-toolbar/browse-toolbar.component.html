@@ -1,36 +1,36 @@
 <div style="display: flex;">
-    <select [ngClass]="{'default':selectedOptionEmp == ''}" [(ngModel)]="selectedOptionEmp" (change)="filterEmployees()" *ngIf="viewType == 'activity'">
+    <select [ngClass]="{'default':selectedOptionEmp === ''}" [(ngModel)]="selectedOptionEmp" (change)="filterEmployees()" *ngIf="viewType === 'activity'">
         <option value="" disabled selected>All Employees</option>
         <option *ngFor="let option of employeeList" [value]="option.value">{{ option.label }}</option>
     </select>
-    <select [ngClass]="{'default':selectedOptionOffice == ''}" [(ngModel)]="selectedOptionOffice" (change)="filterOffice()" *ngIf="viewType == 'people'||'activity'">
+    <select [ngClass]="{'default':selectedOptionOffice === ''}" [(ngModel)]="selectedOptionOffice" (change)="filterOffice()" *ngIf="viewType === 'people' ||viewType === 'activity' ">
         <option value="" disabled selected>All Offices</option>
         <option *ngFor="let option of officeLists" [value]="option.value">{{ option.label }}</option>
     </select>
-    <select [ngClass]="{'default':selectedOptionOrg == ''}" [(ngModel)]="selectedOptionOrg" (change)="filterOrg()" *ngIf="viewType == 'people'||'activity'">
+    <select [ngClass]="{'default':selectedOptionOrg === ''}" [(ngModel)]="selectedOptionOrg" (change)="filterOrg()" *ngIf="viewType === 'people' ||viewType === 'activity' ">
         <option value="" disabled selected>All Organization</option>
         <option *ngFor="let option of orgLists" [value]="option.value">{{ option.label }}</option>
     </select>
-    <select [ngClass]="{'default':selectedOptionManager == ''}" [(ngModel)]="selectedOptionManager" (change)="filterManager()" *ngIf="viewType == 'org'">
+    <select [ngClass]="{'default':selectedOptionManager == ''}" [(ngModel)]="selectedOptionManager" (change)="filterManager()" *ngIf="viewType === 'org'">
         <option value="" disabled selected>All Managers</option>
         <option *ngFor="let option of managerList" [value]="option.value">{{ option.label }}</option>
     </select>
-    <select [ngClass]="{'default':selectedOptionCountry == ''}" [(ngModel)]="selectedOptionCountry" (change)="filterCountry()" *ngIf="viewType == 'office'">
+    <select [ngClass]="{'default':selectedOptionCountry === ''}" [(ngModel)]="selectedOptionCountry" (change)="filterCountry()" *ngIf="viewType === 'office'">
         <option value="" disabled selected>All Countries</option>
         <option *ngFor="let option of countryList" [value]="option.value">{{ option.label }}</option>
     </select>
-    <select [ngClass]="{'default':selectedOptionActionType == ''}" [(ngModel)]="selectedOptionActionType" (change)="filterActions()" *ngIf="viewType == 'activity'">
+    <select [ngClass]="{'default':selectedOptionActionType === ''}" [(ngModel)]="selectedOptionActionType" (change)="filterActions()" *ngIf="viewType === 'activity'">
         <option value="" disabled selected>All Types</option>
         <option *ngFor="let option of actionList" [value]="option.value">{{ option.label }}</option>
     </select>
     <div >
-        <button class="btn undo-btn"><i class="fa fa-undo"></i></button>
+        <button class="btn undo-btn" (click)="handleResetFilter()"><i class="fa fa-undo"></i></button>
     </div>
     <div >
-        <button class="btn sync-btn"><i class="fa fa-sync"></i></button>
+        <button class="btn sync-btn" (click)="refresh()"><i class="fa fa-sync"></i></button>
     </div>
     <div >
-        <button class="btn plus-btn"><span><i class="fa fa plus"></i></span>Create</button>
+        <button class="btn plus-btn" *ngIf="viewType !== 'activity'"><span><i class="fa fa plus"></i></span>Create</button>
     </div>
 
 </div>

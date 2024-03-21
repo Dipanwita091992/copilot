@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,8 @@ export class CommonServiceService {
   public currentPath:string='';
   public apiUrl = 'http://localhost:3000/api';
   public sessionDetails:any;
-
+  public resetEvent = new Subject<void>();
+  public resetEvent$ = this.resetEvent.asObservable();
   constructor(private http: HttpClient) {
     
    }

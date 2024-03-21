@@ -105,7 +105,7 @@ export class OfficeComponent {private gridApi: any;
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
   }
-  filter(value: any, type: string) {
+  filter(value: any) {
     let payload = [{
       action: "offices",
       data: [
@@ -123,12 +123,7 @@ export class OfficeComponent {private gridApi: any;
               "direction": "ASC"
             }
           ],
-          "filter": [
-            {
-              "property": type,
-              "value": value
-            }
-          ]
+          "filter": value
         }
       ],
       method: "list",
@@ -137,11 +132,11 @@ export class OfficeComponent {private gridApi: any;
 
   }
   handleCountrySelect(val: any) {
-    this.filter(val, 'country');
+    this.filter(val);
 
   }
   handleSearch(value: any) {
-    this.filter(value, '#search');
+    this.filter(value);
 
   }
   nameCellRenderer(params: any) {
@@ -165,6 +160,12 @@ export class OfficeComponent {private gridApi: any;
   }
   headcountRenderer(params: any) {
     return `<h4 style="color: ${this.color};margin:0;padding:0;font-size: 14px;font-family: inherit;">${params.data.headcount} employees</h4>`;
+  }
+  resetFilter() {
+    this.getofficeData();
+  }
+  refreshData(data:any) {
+    this.filter(data);
   }
 
 }
