@@ -11,13 +11,17 @@ export class MainComponent {
   currentPath:string='';
   selected:string='home';
   public isCollapsed = true;
-  constructor(private router: Router,private route: ActivatedRoute,private commonservice:CommonServiceService){}
+  loggedinUser: any;
+  constructor(private router: Router,private route: ActivatedRoute,private commonservice:CommonServiceService){
+    this.loggedinUser = this.commonservice.sessionDetails.user;
+  }
   ngAfterViewInit() {
     
     this.route.url.subscribe(segments => {
       this.currentPath = segments.map(segment => segment.path).join('/');
      this.commonservice.currentPath=this.currentPath;
    });
+   
   }
   collapse() {
     this.isCollapsed = !this.isCollapsed;

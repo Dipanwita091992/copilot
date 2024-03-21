@@ -5,15 +5,8 @@ import { ICellRendererAngularComp } from 'ag-grid-angular';
 import { ICellRendererParams } from 'ag-grid-community';
 
 @Component({
-  template: `
-  <style>
-  .hover-effect:hover {
-    text-decoration: underline;
-    cursor: pointer;
-  }
-</style><h4 class="hover-effect"  style="cursor: pointer;color:{{color}};margin:0;padding:0;font-weight: 500;font-family: inherit;" (click)="onClick()">{{params.data.organization.name}}</h4>
-  <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;">{{label}} <span style="color: {{this.color}};">{{manager}}</span></h5>
-  `
+  templateUrl: 'cell-renderer-people.component.html',
+  styleUrls: ['cell-renderer-people.component.scss']
   
   
 })
@@ -22,9 +15,19 @@ export class OrgCellRendererComponent implements ICellRendererAngularComp {
   color: string='#39babf'
    label = 'Managed by '
    manager = ''
+  htmlTemplate: string='';
+  fullName: string='';
+  pictureurl: string='';
  constructor(private router: Router) {    }
   agInit(params: any): void {
     this.params = params;
+    if(this.params.colDef.headerName ==="Oraganization"){
+      this.htmlTemplate = 'org'
+    }if(this.params.colDef.headerName ==="Name/Title"){
+      this.fullName = this.params.data.firstname + ' ' + this.params.data.lastname;
+      this.htmlTemplate = 'name';
+      this.pictureurl = 'http://localhost:3000/'+params.data.picture;
+    }
     this.manager = this.params.data.organization.manager.firstname + ' ' + this.params.data.organization.manager.lastname;
   }
 

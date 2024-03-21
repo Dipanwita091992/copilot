@@ -3,6 +3,8 @@ $historyitem-badge-size: 22px; // Adjust this value according to your needs
 .history-visual {
     white-space: nowrap;
     margin-left: 10px;
+    display: flex;
+    align-items: center;
 
     .action, .picture {
         display: inline-block;
@@ -66,7 +68,7 @@ $historyitem-badge-size: 22px; // Adjust this value according to your needs
         width: 333px;
         max-width: 333px;
         min-width: 300px;
-        height: 55px;
+        height: 60px;
         background-color: rgb(245, 245, 245);
         // margin: 12px;
         cursor: pointer;

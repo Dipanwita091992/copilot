@@ -18,7 +18,9 @@
         <!-- Add more links as needed -->
       </ul>
       <ul class="menu-list-container signout-profile">
-        <li class="no-list-icon" ><a [ngClass]="{ 'selected': selected =='profile'}" (click)="selected = 'profile'" ><span><i class="fa fa-user fa-fw"></i>
+        <li class="no-list-icon " ><a [ngClass]="{ 'selected': selected =='profile'}" class="profile no-padding" (click)="selected = 'profile'" ><span>
+          <!-- <i class="fa fa-user fa-fw"></i> -->
+          <img class="picture icon"  [src]="'http://localhost:3000/'+loggedinUser.picture">
         </span><span *ngIf="!isCollapsed">Dipanwita</span></a></li>
     <li (click)="logoutUser()" class="no-list-icon"><a routerLink="/about"><span><i class="fa fa-power-off  fa-fw"></i>
         </span><span *ngIf="!isCollapsed">Logout</span></a></li>

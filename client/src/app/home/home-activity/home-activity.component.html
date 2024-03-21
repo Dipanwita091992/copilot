@@ -4,13 +4,15 @@
     <div class="header-actuvity">Recent Activity</div>
     <div class="history-item-wrapper" *ngFor="let item of activityData">
       <div class="history-visual">
-        <span class="action action-{{item.type}} {{item.type}}"><i *ngIf="item.type != 'skype' && item.type != 'linkedin'" class="fa fa-{{item.type}} "></i>
+        <div class="action action-{{item.type}} {{item.type}}"><i *ngIf="item.type != 'skype' && item.type != 'linkedin'" class="fa fa-{{item.type}} "></i>
             <i *ngIf="item.type == 'profile'" class="fa fa-user "></i>
             <i *ngIf="item.type == 'email'"class="fa fa-envelope "></i>
             <i *ngIf="item.type == 'skype'"class="fa fa-suitcase  "></i>
-            <i *ngIf="item.type == 'linkedin'"class="fa fa-suitcase   "></i></span>
+            <i *ngIf="item.type == 'linkedin'"class="fa fa-suitcase   "></i></div>
         <!-- <div class="picture large" [style.background-image]="'url(' + item.recipient.picture + ')'"></div> -->
-        <div class="picture large"><i class="fa fa-user  "></i></div>
+        <div>
+          <img class="picture"  [src]="'http://localhost:3000/'+item.recipient.picture">
+        </div>
       </div>
       <div class="history-details">
         <div class="display">{{item.subject}}</div>

@@ -112,7 +112,7 @@ export class PersonComponent implements OnInit {
   }
 
   columnDefs: any[] = [
-    { headerName: 'Name/Title', field: 'firstname', width: 350, headerClass: 'custom-header-class', cellRenderer: this.nameCellRenderer.bind(this), enableRowGroup: true, rowGroup: true },
+    { headerName: 'Name/Title', field: 'firstname', width: 350, headerClass: 'custom-header-class', cellRenderer: "OrgCellRendererComponent", enableRowGroup: true, rowGroup: true },
     {
       headerName: 'Oraganization', field: 'organization.name', width: 350, cellRenderer: "OrgCellRendererComponent",
     },
@@ -162,10 +162,12 @@ export class PersonComponent implements OnInit {
 
   }
   nameCellRenderer(params: any) {
-
+    let pictureutl = 'http://localhost:3000/'+params.data.picture;
     let fullName = params.data.firstname + ' ' + params.data.lastname;
     //return params.data.firstname + ' ' + params.data.lastname +'uuu';
-    return `<h4 style="color: ${this.color};margin:0;padding:0;font-weight: 500;font-family: inherit;">${fullName}</h4>
+    return `<div>
+    <img class="picture"  [src]="${pictureutl}">
+  </div><h4 style="color: ${this.color};margin:0;padding:0;font-weight: 500;font-family: inherit;">${fullName}</h4>
     <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;">${params.data.title}</h5>`;
   }
   orgCellRenderer(params: any) {

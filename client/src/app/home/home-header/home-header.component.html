@@ -8,7 +8,9 @@
     <div class="d-flex header-info">
       <div class="header-links d-flex">
         <div class="item" >
-            <span class="icon fa fa-user"></span>
+            <!-- <span class="icon fa fa-user"></span> -->
+            <!-- <div class="picture icon" style="background-image: url({{loggedinUser.picture}})"></div> -->
+            <img class="picture icon"  [src]="'http://localhost:3000/'+loggedinUser.organization.manager.picture" alt="Dynamic Image">
           <div class="title">Manager</div>
           <a class="link" >{{loggedinUser.organization.manager.firstname}}</a>
         </div>

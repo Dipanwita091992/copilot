@@ -6,3 +6,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import '../node_modules/ag-grid-community/styles/ag-theme-alpine.css';
 @import '../node_modules/ag-grid-community/styles/ag-grid.css';
 @import '../node_modules/ag-grid-community/styles/ag-theme-quartz.css';
+.picture { 
+    display: block;
+    margin: 0 auto 4px auto;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+  }

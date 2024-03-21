@@ -17,7 +17,11 @@
               </div>
             </div>
             <div class="event-content">
-              <div class="picture large" ><span><i class="fa fa-user fa-fw"></i></span></div>
+              <div class="" ><span>
+                <!-- <i class="fa fa-user fa-fw"></i> -->
+                <img class="picture"  [src]="'http://localhost:3000/'+event.person.picture">
+    
+              </span></div>
               <div class="details">
                 <div class="person-name">{{  getfullname(event.person )}}</div>
                 <div class="person-title">{{ event.person.title }}</div>

@@ -67,3 +67,15 @@
     width: 50px !important;
     transition: width 1s;
 }
+
+.no-padding{
+  padding: 0 !important;
+}
+.profile{
+  display: flex !important;
+    align-items: center;
+    gap: 4px;
+}
+.icon{
+  margin:0
+}
