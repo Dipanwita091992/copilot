@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonServiceService } from '../common-service.service';
 import { ColDef, GridOptions } from 'ag-grid-community';
+import { CreateEditModelComponent } from '../shared/create-model/create-edit-model.component';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-office',
@@ -33,8 +36,9 @@ export class OfficeComponent {private gridApi: any;
   }
   officeData: any[]= [];
   countryList: any;
+  managerList: any;
 
-  constructor(private commonservice: CommonServiceService) { }
+  constructor(private commonservice: CommonServiceService,public dialog: MatDialog,private router: Router) { }
   ngOnInit(): void {
     this.getofficeData();
     this.getFilterDataforManager();
@@ -166,6 +170,19 @@ export class OfficeComponent {private gridApi: any;
   }
   refreshData(data:any) {
     this.filter(data);
+  }
+  addOffice() {
+
+    const type = this.viewType;
+    const action = 'Add';
+    this.dialog.open(CreateEditModelComponent, {
+     data: { type,action },
+      width: '600px',
+      height:'600px'
+    });
+
+    //this below code to be shifted to edit functionality page.Implementinh here to test edit & create flow together.
+   //this.router.navigate(['/main/edit',{ type: this.viewType, action: 'edit', }]);
   }
 
 }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ColDef, GridOptions } from 'ag-grid-community';
 import { CommonServiceService } from '../common-service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateEditModelComponent } from '../shared/create-model/create-edit-model.component';
 
 @Component({
   selector: 'app-organization',
@@ -35,7 +37,7 @@ export class OrganizationComponent {
   orgData: any[]= [];
   managerList: any;
 
-  constructor(private commonservice: CommonServiceService) { }
+  constructor(private commonservice: CommonServiceService,public dialog: MatDialog) { }
   ngOnInit(): void {
     this.getorgData();
     this.getFilterDataforManager();
@@ -147,27 +149,37 @@ export class OrganizationComponent {
   }
   managerCellRenderer(params: any) {
     const label = 'Managed by '
-    const manager = params.data.manager.firstname + ' ' + params.data.manager.lastname;
+    const manager = params.data.manager?.firstname + ' ' + params.data.manager?.lastname;
     return `  <style>
     .hover-effect:hover {
       text-decoration: underline;
       cursor: pointer;
     }
   </style><h4 class="hover-effect"  style="cursor: pointer;color: ${this.color};margin:0;padding:0;font-weight: 500;font-family: inherit;">${manager}</h4>
-    <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;"><span style="color: ${this.color};">${params.data.manager.office.name}</span>
-    <span>${params.data.manager.office.city}</span><span>(${params.data.manager.office.country})</span></h5>`;
+    <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;"><span style="color: ${this.color};">${params.data.manager?.office.name}</span>
+    <span>${params.data.manager?.office.city}</span><span>(${params.data.manager?.office.country})</span></h5>`;
   }
   handleClickOrg(params: any, type: string) {
     console.log(params, type);
   }
   headcountRenderer(params: any) {
-    return `<h4 style="color: ${this.color};margin:0;padding:0;font-size: 14px;font-family: inherit;">${params.data.headcount} employees</h4>`;
+    return `<h4 style="color: ${this.color};margin:0;padding:0;font-size: 14px;font-family: inherit;">${params.data?.headcount} employees</h4>`;
   }
   resetFilter() {
     this.getorgData();
   }
   refreshData(data:any) {
     this.filter(data);
+  }
+  addOrg(){
+    const type = this.viewType;
+    const action = 'Add';
+    const managerList = this.managerList;
+    this.dialog.open(CreateEditModelComponent, {
+     data: { type,action,managerList },
+      width: '600px',
+      height:'600px'
+    });
   }
 
 }

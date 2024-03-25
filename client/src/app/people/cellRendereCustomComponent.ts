@@ -28,7 +28,7 @@ export class OrgCellRendererComponent implements ICellRendererAngularComp {
       this.htmlTemplate = 'name';
       this.pictureurl = 'http://localhost:3000/'+params.data.picture;
     }
-    this.manager = this.params.data.organization.manager.firstname + ' ' + this.params.data.organization.manager.lastname;
+    this.manager = this.params.data?.organization?.manager?.firstname + ' ' + this.params.data?.organization?.manager?.lastname;
   }
 
   onClick(): void {

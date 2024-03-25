@@ -1,0 +1,148 @@
+.stepper-menu{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: smaller;
+
+}
+::ng-deep .mat-step-icon {
+   display: none;
+}
+::ng-deep .editModeStepper{
+    width: 55%;
+    margin-left: 25%;
+}
+::ng-deep .mat-step-label-selected {
+    color: #39babf !important;
+    border-bottom: 2px solid #39babf !important;
+    background: #fff !important;
+}
+::ng-deep .mat-stepper-horizontal-line{
+    display: none !important;
+}
+::ng-deep .mat-horizontal-stepper-header-container{
+    justify-content: center;
+    background-color: #fff !important;
+    
+}
+::ng-deep mat-step-header{
+    background-color: #fff !important;
+    padding: 5 !important;
+}
+.modal-header{
+    padding: 20px;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-size: x-large;
+    border: 1px ridge gainsboro;
+    height: 30px;
+}
+.modal-footer{
+    justify-content: space-between;
+    bottom: 0;
+    border-top: 1px ridge gainsboro;
+    display: flex;
+    align-items: baseline;
+    background: #f2f1f1;
+    padding: 7px;
+    margin-top: 26px;
+}
+.form-field{
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    label{
+        font-size: 14px;
+        font-weight: 500;
+        width: 130px;
+        align-self: center;
+    }
+    input,select{
+        font: 300 13px / 17px 'Open Sans', 'Helvetica Neue', helvetica, arial, sans-serif;
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-bottom: 11px;
+        padding-left: 10px;
+        min-height: 17px;
+        background-color: transparent;
+        color: inherit;
+        outline: none;
+        border: 0;
+        margin: 0;
+        margin-right: 10px;
+        flex: 1 1 auto;
+        box-sizing: content-box;
+        border: 1px solid #ccc;
+        flex-grow: 1;
+        flex-shrink: 1;
+        width:120px;
+    }
+    :focus{
+        border: 0 0 3px 0 solid #39babf;
+        box-shadow: 0 0 0 1px #39babf;
+    }
+}
+.btn{
+    background-color: #39babf ;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin-right: 10px;
+    width: auto;
+    height: 38px;
+   // background: transparent;
+    border: 0;
+    color: white;
+    /* width: 16px; */
+    font-size: large;
+    &:hover{
+        background-color: #2f9c9f;
+        cursor: pointer;
+    }
+}
+
+.icon{
+    font-size: large;
+    margin-right: 20px;
+    color: gray;
+    cursor: pointer;
+    &:hover{
+        color: black;
+    }
+    &:disabled{
+        color: gainsboro;
+        cursor: not-allowed;
+    }
+}
+.fa-info, .fa-sitemap, .fa-home{
+    font-size: large;
+}
+.cancel{
+    background-color: gainsboro;;
+    &:hover{
+        background-color: gray;
+    }
+}
+.edit{
+    position: absolute;
+    left: 50px;
+    width: 96.7%;
+    height: 100%;
+    overflow-y: hidden;
+    max-height: 100%;
+}
+.edit-action{
+    background: #f2f1f1;
+    padding: 7px;
+    margin-top: 0;
+}
+.action-nav-stepper{
+    margin-left: 15px;
+   
+
+}
+
+

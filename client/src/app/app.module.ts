@@ -25,7 +25,7 @@ import { SharedModule } from './shared/shared.module';
 import { OrganizationModule } from './organization/organization.module';
 import { OfficeModule } from './office/office.module';
 import { ActivityModule } from './activity/activity.module';
-
+import { MatDialogModule } from '@angular/material/dialog'
 @NgModule({
   declarations: [
     AppComponent,

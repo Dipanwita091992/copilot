@@ -4,7 +4,9 @@ import { ColDef, GridOptions } from 'ag-grid-community';
 import { CommonServiceService } from '../../common-service.service';
 import { Person } from '../../shared/models/person';
 import { OrgCellRendererComponent } from '../cellRendereCustomComponent';
-
+import { MatDialog } from '@angular/material/dialog';
+import { CreateEditModelComponent } from '../../shared/create-model/create-edit-model.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-person',
@@ -42,7 +44,11 @@ export class PersonComponent implements OnInit {
   peopleData: Person[]= [];
   filterOfficelist: any;
   filterOrglist: any;
-  constructor(private commonservice: CommonServiceService) { }
+  constructor(private commonservice: CommonServiceService,public dialog: MatDialog,private router: Router) {
+    this.commonservice.cancelEvent$.subscribe((data: any) => {
+      this.dialog.closeAll();
+    });
+   }
   ngOnInit(): void {
     this.getpeopleData();
     this.getFilterDataforOffice();
@@ -185,8 +191,8 @@ export class PersonComponent implements OnInit {
     console.log(params, type);
   }
   officeCellRenderer(params: any) {
-    return `<h4 style="color: ${this.color};margin:0;padding:0;font-weight: 500;font-family: inherit;">${params.data.office.name}</h4>
-    <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;">${params.data.office.city},${params.data.office.country}</h5>`;
+    return `<h4 style="color: ${this.color};margin:0;padding:0;font-weight: 500;font-family: inherit;">${params.data.office?.name}</h4>
+    <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;">${params.data.office?.city},${params.data.office?.country}</h5>`;
   }
   contactCellRenderer(params: any) {
     return `<h4 style="margin:0;padding:0;font-size: 14px;font-family: inherit;">${params.data.email}</h4>
@@ -200,6 +206,21 @@ export class PersonComponent implements OnInit {
   }
   refreshData(data:any) {
     this.filter(data);
+  }
+  onCreatePerson() {
+    const officeList = this.filterOfficelist;
+    const orgList = this.filterOrglist;
+    const type = this.viewType;
+    const action = 'Add';
+    this.dialog.open(CreateEditModelComponent, {
+     data: { officeList,orgList,type,action },
+      width: '600px',
+      height:'600px'
+    });
+
+    //this below code to be shifted to edit functionality page.Implementinh here to test edit & create flow together.
+   //this.router.navigate(['/main/edit',{ type: this.viewType, action: 'edit', 
+   //officeList: JSON.stringify(officeList), orgList: JSON.stringify(orgList)}]);
   }
 
 }

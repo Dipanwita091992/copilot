@@ -30,7 +30,7 @@
         <button class="btn sync-btn" (click)="refresh()"><i class="fa fa-sync"></i></button>
     </div>
     <div >
-        <button class="btn plus-btn" *ngIf="viewType !== 'activity'"><span><i class="fa fa plus"></i></span>Create</button>
+        <button class="btn plus-btn" (click)="create()" *ngIf="viewType !== 'activity'"><span><i class="fa fa plus"></i></span>Create</button>
     </div>
 
 </div>

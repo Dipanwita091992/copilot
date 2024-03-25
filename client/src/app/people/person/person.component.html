@@ -5,7 +5,7 @@
   <div class="header-people">
     <app-browse (searchEvent)="handleSearch($event)"></app-browse>
     <app-browse-toolbar [officeLists]="filterOfficelist" [orgLists]="filterOrglist" [viewType]="viewType"(selectedOrg)="handleOrgSelect($event)" (selectedOffice)="handleOfficeSelect($event)" (resetFilter)="resetFilter()"
-    (refreshData)="refreshData($event)"></app-browse-toolbar>
+    (refreshData)="refreshData($event)" (createEvent)="onCreatePerson()"></app-browse-toolbar>
   </div>
   <ag-grid-angular #agGrid class="ag-theme-alpine" [rowData]="peopleData"[suppressRowClickSelection]="true"
     [columnDefs]="columnDefs" [autoGroupColumnDef]="autoGroupColumnDef" [components]="components" [groupHeaderHeight]="50" [animateRows]="true"

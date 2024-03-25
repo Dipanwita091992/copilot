@@ -11,6 +11,8 @@ export class CommonServiceService {
   public sessionDetails:any;
   public resetEvent = new Subject<void>();
   public resetEvent$ = this.resetEvent.asObservable();
+  public cancelEvent = new Subject<void>();
+  public cancelEvent$ = this.cancelEvent.asObservable();
   constructor(private http: HttpClient) {
     
    }

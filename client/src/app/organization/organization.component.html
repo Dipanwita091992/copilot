@@ -5,7 +5,7 @@
     <div class="header-org">
       <app-browse (searchEvent)="handleSearch($event)"></app-browse>
       <app-browse-toolbar [managerList]="managerList" [viewType]="viewType"(handleManagerSelect)="handleManagerSelect($event)"(resetFilter)="resetFilter()" 
-      (refreshData)="refreshData($event)"></app-browse-toolbar>
+      (refreshData)="refreshData($event)" (createEvent)="addOrg()"></app-browse-toolbar>
     </div>
     <ag-grid-angular  class="ag-theme-alpine" [rowData]="orgData"[suppressRowClickSelection]="true"
       [columnDefs]="columnDefs" [autoGroupColumnDef]="autoGroupColumnDef" [groupHeaderHeight]="50" [animateRows]="true"
