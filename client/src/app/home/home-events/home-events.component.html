@@ -26,7 +26,7 @@
                 <div class="person-name">{{  getfullname(event.person )}}</div>
                 <div class="person-title">{{ event.person.title }}</div>
                 <div class="person-years">
-                  {{ getYears(event) }}
+                  {{ getYears(event) }} years <span *ngIf="event.type === 'birthday'">old</span>
                 </div>
               </div>
             </div>

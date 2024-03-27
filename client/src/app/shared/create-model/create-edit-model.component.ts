@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, Optional } from '@angular/core';
 import { MatStepper } from '@angular/material/stepper';
 import { CreatePerson } from '../models/create-person';
 import { CommonServiceService } from '../../common-service.service';
@@ -26,10 +26,14 @@ export class CreateEditModelComponent {
   type: any;
   isModalView: boolean = false;
   managerList: any;
+  personId:string='';
+  officeId: string = '';
+  orgId: string = '';
 
   constructor(private commonservice: CommonServiceService,private route: ActivatedRoute,private location: Location,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Optional()@Inject(MAT_DIALOG_DATA) public data: any
     ) { 
+      if(data){
    this.filterOfficelist = data.officeList;
    this.filterOrglist = data.orgList;
    this.viewType = data.type;
@@ -37,6 +41,7 @@ export class CreateEditModelComponent {
    this.action = data.action;
    this.isModalView = true;
    this.managerList = data.managerList;
+      }
 
 }
   ngOnInit(): void {  
@@ -54,12 +59,16 @@ export class CreateEditModelComponent {
         switch (params['type']) {
           case 'people':
             this.viewType = 'Employee';
+            this.personId = params['id'];
             break;
           case 'office':
             this.viewType = 'Office';
+            this.officeId = params['id'];
             break;
-          case 'organization':
+          case 'org':
             this.viewType = 'Organization';
+            this.orgId = params['id'];
+            this.managerList = params['managerList']?JSON.parse(params['managerList']):[];
             break;
           default:
             break;
@@ -96,7 +105,7 @@ export class CreateEditModelComponent {
          payload = [{
           action: "people",
           data: [
-            {id: "fcab7f8d-0d89-43b0-a11a-12415a4bb9c1"}// to be replaced by routing params as if when nagivate from browse to edit
+            {id: this.personId}
           ],
           method: "list",
         }]
@@ -105,7 +114,7 @@ export class CreateEditModelComponent {
          payload = [{
           action: "offices",
           data: [
-            {id: "fcab7f8d-0d89-43b0-a11a-12415a4bb9c1"}// to be replaced by routing params as if when nagivate from browse to edit
+            {id: this.officeId}
           ],
           method: "list",
         }]
@@ -114,7 +123,7 @@ export class CreateEditModelComponent {
         payload = [{
           action: "organizations",
           data: [
-            {id: "fcab7f8d-0d89-43b0-a11a-12415a4bb9c1"}// to be replaced by routing params as if when nagivate from browse to edit
+            {id: this.orgId}
           ],
           method: "list",
         }]
@@ -125,8 +134,10 @@ export class CreateEditModelComponent {
   
     this.commonservice.getData(payload).subscribe((res: any) => {
       this.formData = res[0].result.data[0]
-     // this.formData.officeId = this.formData.office.id;
-    //  this.formData.organizationId = this.formData.organization.id;
+      // This below adjustment is made to match the form data with the API request managerid.
+      if(this.type == 'org'){
+        this.formData.manager_id = this.formData.managerId;
+      }
     });
   }
   goToPrevious(stepper?: MatStepper): void {

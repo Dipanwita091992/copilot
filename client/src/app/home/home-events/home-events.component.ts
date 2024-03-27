@@ -43,7 +43,18 @@ export class HomeEventsComponent {
   }
 
   getYears(event: any) {
-    return '25'
+    const currentDate = new Date();
+ 
+      if(event.type === 'birthday'){
+        return currentDate.getFullYear() - new Date(event.person.birthday).getFullYear();
+
+
+      }else{
+        return currentDate.getFullYear() - new Date(event.person.started).getFullYear();
+      }
+      
+  
+   // return '25'
   }
   getfullname(event: any) {
     return event.firstname + ' ' + event.lastname;
