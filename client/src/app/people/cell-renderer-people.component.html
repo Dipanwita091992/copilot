@@ -1,14 +1,20 @@
 <div *ngIf="htmlTemplate === 'org'">
-    <h4 class="hover-effect main-text"  (click)="onClick()">{{params.data.organization?.name}}</h4>
-    <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;">{{label}} <span style="color: #39babf">{{manager}}</span></h5>
+    <h4 class="hover-effect main-text"  (click)="onClick('org')">{{params.data.organization?.name}}</h4>
+    <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;">{{label}} 
+      <span class="hover-effect " (click)="onClickTitle(params.data?.organization?.manager?.id)" style="color: #39babf">{{manager}}</span></h5>
 </div>
 <div class="name" *ngIf="htmlTemplate === 'name'">
     <div>
         <img class="picture"  [src]="pictureurl">
       </div>
       <div>
-        <h4 style="color: #39babf;margin:0;padding:0;font-weight: 500;font-family: inherit;">{{fullName}}</h4>
+        <h4 class="hover-effect main-text" (click)="onClick('name')" style="color: #39babf;margin:0;padding:0;font-weight: 500;font-family: inherit;">{{fullName}}</h4>
         <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;">{{params.data?.title}}</h5>
       </div>
        
+</div>
+<div *ngIf="htmlTemplate === 'office'">
+  <h4 class="hover-effect main-text" (click)="onClick('office')" style="color: #39babf;margin:0;padding:0;font-weight: 500;font-family: inherit;">{{params.data.office?.name}}</h4>
+    <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;">{{params.data.office?.city}},{{params.data.office?.country}}</h5>
+
 </div>

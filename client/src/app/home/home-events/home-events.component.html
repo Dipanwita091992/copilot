@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="data-view-list">
-        <div class="data-view" *ngFor="let event of events">
+        <div class="data-view" (click)="navigateToPerson(event.person.id)" *ngFor="let event of events">
             <div class="event-header" [ngClass]="'type-' + event.type">
               <div class="date">{{ event.date | date:'MMM d' }}</div>
               <div class="title">

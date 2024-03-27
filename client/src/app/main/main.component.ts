@@ -30,5 +30,8 @@ export class MainComponent {
     localStorage.removeItem('authToken');
     this.router.navigate(['/login']);
   }
+  clickprofile(id: any) {
+    this.router.navigate(['/main/personView', id]);
+  };
 
 }

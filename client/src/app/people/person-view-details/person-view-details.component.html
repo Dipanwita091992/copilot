@@ -1,0 +1,138 @@
+<div style="margin-left: 50px; position: relative;" *ngIf="personDetails">
+
+    <div class="header-section">
+        <div class="header">
+            <div class="title">
+                <div class="img">
+                    <img class="image" [src]="'http://localhost:3000/'+personDetails.picture">
+                </div>
+                <div class="detail-msg">
+                    <div class="name">{{ fullName }}</div>
+                    <div class="desc">{{ personDetails.title }}</div>
+                    <div style="display: flex;position: absolute;top: 104px; gap:10px">
+                        <div class="action-icons" style="border-radius:50%;color:white;background-color: green;"><i
+                                class="fa fa-phone "></i></div>
+                        <div class="action-icons" style="border-radius:50%;color:white;background-color: #4867aa;"><i
+                                class="fa fa-suitcase"></i></div>
+                        <div class="action-icons" style="border-radius:50%;color:white;background-color: #0077b5;">
+                            <i class="fa fa-suitcase  "></i>
+                        </div>
+                        <div class="action-icons" style="border-radius:50%;color:white;background-color: #00aff0"><i
+                                class="fa fa-suitcase  "></i></div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div style="align-self: center;"><i class="fa fa-pencil fa-fw"></i>Edit</div>
+    </div>
+    <div class="content">
+
+        <div class="emp">
+            <div class="flex">
+                <span>
+                    <h2 style="color:#7d8f8f;">Details</h2>
+                </span>
+            </div>
+            <div style="display: flex; gap:20px;justify-content: space-between;">
+                <div style="display: flex;flex-direction: column;">
+                    <div>
+                        <span style="color:#39babf; padding-bottom: 0%;">USERNAME</span>
+                        <span>
+                            <p style="color:#7d8f8f; margin-bottom: 0%;">{{personDetails.username}}</p>
+                        </span>
+                    </div>
+                    <div>
+                        <span style="color:#39babf; padding-bottom: 0%;">PHONE</span>
+                        <span>
+                            <p style="color:#7d8f8f; margin-bottom: 0%;">{{personDetails.phone}}</p>
+                        </span>
+                    </div>
+
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <div>
+                        <span style="color:#39babf; padding-bottom: 0%;">EMAIL</span>
+                        <span>
+                            <p style="color:#7d8f8f; margin-bottom: 0%;">{{personDetails.email}}</p>
+                        </span>
+                    </div>
+                    <div>
+                        <span style="color:#39babf; padding-bottom: 0%;">SKYPE</span>
+                        <span>
+                            <p style="color:#7d8f8f; margin-bottom: 0%;">{{personDetails.skype}}</p>
+                        </span>
+                    </div>
+                    <div>
+                        <span style="color:#39babf; padding-bottom: 0%;">LINKEDIN</span>
+                        <span>
+                            <p style="color:#7d8f8f; margin-bottom: 0%;">{{personDetails.linkedin}}</p>
+                        </span>
+                    </div>
+
+                </div>
+                <div style="display: flex;flex-direction: column;">
+                    <div>
+                        <span style="color:#39babf; padding-bottom: 0%;">BIRTHDAY</span>
+                        <span>
+                            <p style="color:#7d8f8f; margin-bottom: 0%;">{{personDetails.birthday}}</p>
+                        </span>
+                    </div>
+                    <div>
+                        <span style="color:#39babf; padding-bottom: 0%;">ENTRY DATE</span>
+                        <span>
+                            <p style="color:#7d8f8f; margin-bottom: 0%;">{{personDetails.started}}</p>
+                        </span>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="action">
+            <div class="action-header">
+                <h2>Recent Activity</h2>
+                <i class="icon-right fa fa-history fa-fw"></i>
+            </div>
+            <div>
+                <app-home-activity></app-home-activity>
+
+            </div>
+        </div>
+    </div>
+    <div class="content-str">
+        <div class="emp">
+            <div class="flex" style="justify-content: space-between;">
+                <div style="display: flex; gap:10px">
+                    <div>
+                        <i  style="margin-top: 6px;"class="icon-left fa fa-sitemap fa-fw"></i>
+                       
+                    </div>
+                   <div style="display: flex;flex-direction: column;">
+                    <span style="height: 25px;">
+                        <h2 style="color:#39babf;margin-bottom: 0%;">Strategy</h2>
+                    </span>
+                    <div class="desc" ><h5>Managed by <b>{{ fullName }}</b></h5></div>
+                   </div>
+                    
+                </div>
+                <div style="display: flex; gap:5px">
+                    <i class=" icon-right fa fa-users fa-fw"></i>
+                    <span>
+                        <h3 style="margin-top: 7px; font-size: large;"><b>{{personDetails.organization.headcount}}</b></h3>
+                    </span>
+                </div>
+            </div>
+            <div class="flex" style="">
+                <div *ngFor="let item of emoployeeListForOrg">
+                    <img class="image-emp" [src]="'http://localhost:3000/'+item.picture">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div style="margin-left: 50px; position: relative;" *ngIf="orgDetails">
+    
+    <div class="header-section">
+        <div class="header">
+            <div class="title">
+              <div class="icon"><i class="fa fa-sitemap fa-fw"></i></div>
+              <div class="separator"></div>
+              <div class="detail-msg">
+                <div class="name">{{ orgDetails.name }}</div>
+                <div class="desc">Managed by <b>{{ fullName }}</b></div>
+              </div>
+            </div>
+          </div>
+          <div style="align-self: center;"><i class="fa fa-pencil fa-fw"></i>Edit</div>
+    </div>
+    <div class="content">
+     <div class="emp">
+         <div class="flex">
+            <i class="icon-left fa fa-users fa-fw"></i>
+            <span><h2 style="color:#7d8f8f;">Employees</h2></span>
+        </div>
+         <div class="flex" style="display: flex; gap:5px">
+            <i class=" icon-right fa fa-users fa-fw"></i>
+            <span><h3 style="margin-top: 7px; font-size: large;"><b>{{orgDetails.headcount}}</b></h3></span></div>
+     </div>
+     <div class="action">
+        <div class="action-header">
+           <h2>Recent Activity</h2>
+           <i class="icon-right fa fa-history fa-fw"></i>
+        </div>
+        <div>
+            <app-home-activity></app-home-activity>
+
+        </div>
+     </div>
+    </div>
+</div>

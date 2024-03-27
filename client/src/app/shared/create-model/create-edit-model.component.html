@@ -1,5 +1,5 @@
 
-<div *ngIf="type ==='people'" style="position: relative;" [ngClass]="{ 'edit': isEditMode}">
+<div *ngIf="type ==='people'"  [ngClass]="{ 'edit': isEditMode}">
     <div class="modal-header">
         <i *ngIf="!isEditMode"class="fa fa-plus"></i>
         <i *ngIf="isEditMode" class="fa fa-pencil"></i>
@@ -140,7 +140,7 @@
         </form>
     </mat-stepper>
     <div *ngIf="!isEditMode">
-        <div  class="modal-footer"  >
+        <div  class="modal-footer" styles="margin-bottom: -14% !important;" >
             <!-- Stepper footer -->
                 <div class="footer-nav-stepper">
                     <i class="fa fa-chevron-circle-left icon" (click)="goToPrevious(stepper)" aria-hidden="true"></i>
@@ -204,7 +204,7 @@
     </div>
 
     <div>
-        <div *ngIf="!isEditMode" class="modal-footer" style="margin-top:10%">
+        <div *ngIf="!isEditMode" class="modal-footer" style="margin-top:10%;justify-content: end;">
       
                 <div class="footer-modal-action-btngrp">
                     <button class="btn" type="submit" (click)="submitForm(false)">Create</button>
@@ -250,7 +250,7 @@
     </div>
 
     <div>
-        <div *ngIf="!isEditMode" class="modal-footer" style="margin-top:10%">
+        <div *ngIf="!isEditMode" class="modal-footer" style="margin-top:10%;justify-content: end;">
       
                 <div class="footer-modal-action-btngrp">
                     <button class="btn" type="submit" (click)="submitForm(false)">Create</button>

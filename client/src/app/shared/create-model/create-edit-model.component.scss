@@ -48,7 +48,9 @@
     align-items: baseline;
     background: #f2f1f1;
     padding: 7px;
-    margin-top: 26px;
+    position: absolute;
+    bottom: 0;
+    width: -webkit-fill-available;
 }
 .form-field{
     display: flex;

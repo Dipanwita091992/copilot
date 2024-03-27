@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { CommonServiceService } from '../../common-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-events',
@@ -11,7 +12,7 @@ export class HomeEventsComponent {
   range: string = 'upcoming';
   events: any;
   selected: string = 'upcoming';
-  constructor(private http: HttpClient, private commonservice: CommonServiceService,) {
+  constructor(private http: HttpClient, private commonservice: CommonServiceService,private router: Router) {
     this.getEventsData(this.selected);
   }
 
@@ -60,6 +61,10 @@ export class HomeEventsComponent {
 
       this.getEventsData('recent')
     }
+  }
+  navigateToPerson(id: string){
+    this.router.navigate(['/main/personView', id]);
+
   }
 
 }

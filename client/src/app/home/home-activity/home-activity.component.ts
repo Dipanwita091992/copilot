@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonServiceService } from '../../common-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-activity',
@@ -8,24 +9,15 @@ import { CommonServiceService } from '../../common-service.service';
   styleUrl: './home-activity.component.scss'
 })
 export class HomeActivityComponent {
-  activityData: any;
+  @Input() activityData: any;
 
-  constructor( private commonservice: CommonServiceService) { 
-    this.getActivitysData();
+  constructor( private router: Router) { }
+   
+
+  navigateToPerson(id: string){
+    this.router.navigate(['/main/personView', id]);
+
   }
 
-
-  getActivitysData() {
-    let payload = [{
-      action: "actions",
-      data: [{ limit: 8, page: 1, start: 0, sort: [{property: "created", direction: "DESC"}], }],
-      method: "list",
-    }]
- 
-
-    this.commonservice.getData(payload).subscribe((res: any) => {
-      this.activityData = res[0].result.data;
-    });
-  }
 
 }

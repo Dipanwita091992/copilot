@@ -4,11 +4,12 @@ import { SharedModule } from '../shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgGridModule } from 'ag-grid-angular';
 import { OrganizationComponent } from './organization.component';
+import { OrgViewDetailsComponent } from './org-view-details/org-view-details.component';
 
 
 
 @NgModule({
-  declarations: [OrganizationComponent],
+  declarations: [OrganizationComponent,OrgViewDetailsComponent],
   imports: [
     CommonModule,SharedModule, BrowserAnimationsModule, AgGridModule,
   ],  exports: [OrganizationComponent],

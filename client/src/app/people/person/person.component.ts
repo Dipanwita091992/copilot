@@ -122,7 +122,7 @@ export class PersonComponent implements OnInit {
     {
       headerName: 'Oraganization', field: 'organization.name', width: 350, cellRenderer: "OrgCellRendererComponent",
     },
-    { headerName: 'Office', field: 'office.name', width: 350, cellRenderer: this.officeCellRenderer.bind(this) },
+    { headerName: 'Office', field: 'office.name', width: 350, cellRenderer: "OrgCellRendererComponent" },
     { headerName: 'Email', field: 'email', width: 400, cellRenderer: this.contactCellRenderer.bind(this) }
   ];
   public autoGroupColumnDef: ColDef = {

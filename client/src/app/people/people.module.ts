@@ -6,13 +6,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgGridModule } from 'ag-grid-angular';
 import { OrgCellRendererComponent } from './cellRendereCustomComponent';
 import { MatDialogModule } from '@angular/material/dialog';
+import { PersonViewDetailsComponent } from './person-view-details/person-view-details.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { HistoryComponent } from '../history/history.component';
 
 
 
 @NgModule({
-  declarations: [PersonComponent,OrgCellRendererComponent],
+  declarations: [PersonComponent,OrgCellRendererComponent,PersonViewDetailsComponent,HistoryComponent],
   imports: [
-    CommonModule, SharedModule, BrowserAnimationsModule, AgGridModule,MatDialogModule
+    CommonModule, SharedModule, BrowserAnimationsModule, AgGridModule,MatDialogModule,GoogleMapsModule
   ],
   exports: [PersonComponent,OrgCellRendererComponent],
 })

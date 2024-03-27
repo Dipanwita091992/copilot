@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './history.component.scss'
 })
 export class HistoryComponent {
+  zoom = 8;
+  center: any = { lat: 51.678418, lng: 7.809007 };
 
 }

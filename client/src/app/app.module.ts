@@ -14,7 +14,6 @@ import { HomeComponent } from './home/home.component';
 import { HomeHeaderComponent } from './home/home-header/home-header.component';
 import { HomeEventsComponent } from './home/home-events/home-events.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; // 
-import { HomeActivityComponent } from './home/home-activity/home-activity.component';
 import { OfficeComponent } from './office/office.component';
 import { HistoryComponent } from './history/history.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -26,6 +25,7 @@ import { OrganizationModule } from './organization/organization.module';
 import { OfficeModule } from './office/office.module';
 import { ActivityModule } from './activity/activity.module';
 import { MatDialogModule } from '@angular/material/dialog'
+import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,8 +34,8 @@ import { MatDialogModule } from '@angular/material/dialog'
     HomeComponent,
     HomeHeaderComponent,
     HomeEventsComponent,
-    HomeActivityComponent,
-    HistoryComponent,
+    // HomeActivityComponent,
+    
     
   ],
   imports: [
@@ -53,7 +53,9 @@ import { MatDialogModule } from '@angular/material/dialog'
     SharedModule,
     OrganizationModule,
     OfficeModule,
-    ActivityModule
+    ActivityModule,
+    
+ 
   ],
   providers: [  {
     provide: HTTP_INTERCEPTORS,

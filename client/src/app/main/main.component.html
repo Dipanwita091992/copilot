@@ -18,7 +18,7 @@
         <!-- Add more links as needed -->
       </ul>
       <ul class="menu-list-container signout-profile">
-        <li class="no-list-icon " ><a [ngClass]="{ 'selected': selected =='profile'}" class="profile no-padding" (click)="selected = 'profile'" ><span>
+        <li class="no-list-icon " ><a [ngClass]="{ 'selected': selected =='profile'}" class="profile no-padding" (click)="selected = 'profile';clickprofile(loggedinUser.id)" ><span>
           <!-- <i class="fa fa-user fa-fw"></i> -->
           <img class="picture icon"  [src]="'http://localhost:3000/'+loggedinUser.picture">
         </span><span *ngIf="!isCollapsed">Dipanwita</span></a></li>

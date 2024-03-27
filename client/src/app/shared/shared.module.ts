@@ -14,9 +14,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CreateEditModelComponent } from './create-model/create-edit-model.component';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { HomeActivityComponent } from '../home/home-activity/home-activity.component';
 @NgModule({
   declarations: [BrowseComponent,
-    BrowseToolbarComponent,CreateEditModelComponent],
+    BrowseToolbarComponent,CreateEditModelComponent,HomeActivityComponent],
   imports: [
     CommonModule, BrowserModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, AgGridModule,
     MatButtonModule,
@@ -29,7 +30,7 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
   ],
   exports: [BrowseComponent,
-    BrowseToolbarComponent,CreateEditModelComponent],
+    BrowseToolbarComponent,CreateEditModelComponent,HomeActivityComponent],
   providers: [CommonServiceService,   {
     provide: STEPPER_GLOBAL_OPTIONS,
     useValue: { displayDefaultIndicatorType: false }

@@ -4,13 +4,14 @@ import { OfficeComponent } from './office.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from '../shared/shared.module';
-
-
+import { OfficeViewDetailsComponent } from './office-view-details/office-view-details.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
-  declarations: [OfficeComponent],
+  declarations: [OfficeComponent,OfficeViewDetailsComponent],
   imports: [
-    CommonModule,SharedModule, BrowserAnimationsModule, AgGridModule,
+    CommonModule,SharedModule, BrowserAnimationsModule, AgGridModule,GoogleMapsModule
+ 
   ],
   exports: [OfficeComponent]
 })
