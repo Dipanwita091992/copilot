@@ -36,12 +36,18 @@ export class OfficeViewDetailsComponent {  officeDetails: any;
 
     this.commonservice.getData(payload).subscribe((res: any) => {
       this.officeDetails = res[0].result.data[0];
-      this.fullName = this.officeDetails.manager.firstname + ' ' + this.officeDetails.manager.lastname;
     });
   }
   handleEditClick(id:string){ 
     this.router.navigate(['/main/edit',{ id:id, type: 'office', action: 'edit', }]);
    }
+   goToEmployeeListForOffice(id: string){
+    let data = {
+      property: "officeId",
+      value: id
+    }
+    this.router.navigate(['/main/people'], { queryParams: { data: JSON.stringify(data) }})
 
+  }
 
 }

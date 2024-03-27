@@ -118,14 +118,14 @@
                    </div>
                     
                 </div>
-                <div style="display: flex; gap:5px">
+                <div style="display: flex; gap:5px" (click)="goToEmployeeListForOrg(personDetails.organization.id)">
                     <i class=" icon-right fa fa-users fa-fw"></i>
                     <span>
                         <h3 style="margin-top: 7px; font-size: large;"><b>{{personDetails.organization.headcount}}</b></h3>
                     </span>
                 </div>
             </div>
-            <div class="flex" style="">
+            <div class="flex">
                 <div *ngFor="let item of emoployeeListForOrg">
                     <img class="image-emp" [src]="'http://localhost:3000/'+item.picture">
                 </div>

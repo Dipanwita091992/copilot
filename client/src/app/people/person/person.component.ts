@@ -6,7 +6,7 @@ import { Person } from '../../shared/models/person';
 import { OrgCellRendererComponent } from '../cellRendereCustomComponent';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateEditModelComponent } from '../../shared/create-model/create-edit-model.component';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-person',
@@ -44,15 +44,24 @@ export class PersonComponent implements OnInit {
   peopleData: Person[]= [];
   filterOfficelist: any;
   filterOrglist: any;
-  constructor(private commonservice: CommonServiceService,public dialog: MatDialog,private router: Router) {
+  isfilterRoute: boolean = false;
+  constructor(private commonservice: CommonServiceService,public dialog: MatDialog,private router: Router,private route: ActivatedRoute) {
     this.commonservice.cancelEvent$.subscribe((data: any) => {
       this.dialog.closeAll();
     });
+    this.route.queryParams.subscribe(params => {
+      this.filter([JSON.parse(params['data'])]);
+      this.isfilterRoute = true;
+    });
    }
   ngOnInit(): void {
-    this.getpeopleData();
+   
     this.getFilterDataforOffice();
     this.getFilterDataforOrg();
+    if (this.isfilterRoute) {
+     return;
+    }
+    this.getpeopleData();
   }
   getpeopleData(payloadArg?: any) {
     let payload;

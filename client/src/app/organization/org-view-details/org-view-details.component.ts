@@ -57,6 +57,12 @@ export class OrgViewDetailsComponent {
    
 
   }
-
+  goToEmployeeListForOrg(id: string){
+    let data = {
+      property: "organizationId",
+      value: id
+    }
+    this.router.navigate(['/main/people'], { queryParams: { data: JSON.stringify(data) }})
+  }
 
 }

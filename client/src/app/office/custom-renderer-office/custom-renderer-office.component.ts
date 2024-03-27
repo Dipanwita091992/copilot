@@ -36,6 +36,16 @@ export class CustomRendererOfficeComponent {
     case 'name': this.router.navigate(['/main/personView', this.personId]);
     break;
     case 'office': this.router.navigate(['/main/officeView',  this.officeId]);
+    break;
+    case 'count': {
+      let data = {
+        property: "officeId",
+        value: this.officeId
+      }
+      this.router.navigate(['/main/people'], { queryParams: { data: JSON.stringify(data) }});
+      
+    }
+    break;
    }
    //this.router.navigate(['/main/orgView']);
   }

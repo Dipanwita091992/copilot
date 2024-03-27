@@ -15,11 +15,11 @@
     </div>
     <div class="content">
      <div class="emp">
-         <div class="flex">
+         <div class="flex" >
             <i class="icon-left fa fa-users fa-fw"></i>
             <span><h2 style="color:#7d8f8f;">Employees</h2></span>
         </div>
-         <div class="flex" style="display: flex; gap:5px">
+         <div class="flex" style="display: flex; gap:5px"(click)="goToEmployeeListForOrg(orgDetails.id)">
             <i class=" icon-right fa fa-users fa-fw"></i>
             <span><h3 style="margin-top: 7px; font-size: large;"><b>{{orgDetails.headcount}}</b></h3></span></div>
      </div>
