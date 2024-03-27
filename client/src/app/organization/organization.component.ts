@@ -3,6 +3,7 @@ import { ColDef, GridOptions } from 'ag-grid-community';
 import { CommonServiceService } from '../common-service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateEditModelComponent } from '../shared/create-model/create-edit-model.component';
+import { CustomRendererOrgComponent } from './custom-renderer-org/custom-renderer-org.component';
 
 @Component({
   selector: 'app-organization',
@@ -13,6 +14,9 @@ export class OrganizationComponent {
   private gridApi: any;
   private gridColumnApi: any;
   groupDefaultExpanded = 1;
+  components = {
+    CustomRendererOrgComponent: CustomRendererOrgComponent,
+  }
   color = '#39babf';
   viewType = 'org';
   gridOptions: GridOptions = {
@@ -93,11 +97,11 @@ export class OrganizationComponent {
   }
 
   columnDefs: any[] = [
-    { headerName: 'Name', field: 'name', width: 550, headerClass: 'custom-header-class', cellRenderer: this.nameCellRenderer.bind(this), enableRowGroup: true, rowGroup: true },
+    { headerName: 'Name', field: 'name', width: 550, headerClass: 'custom-header-class',cellRenderer: "CustomRendererOrgComponent", enableRowGroup: true, rowGroup: true },
     {
-      headerName: 'Manager', field: 'manager.id', width: 550, cellRenderer: this.managerCellRenderer.bind(this)
+      headerName: 'Manager', field: 'manager.id', width: 550, cellRenderer: "CustomRendererOrgComponent",
     },
-    { headerName: 'Headcount', field: 'headcount', width: 370, cellRenderer: this.headcountRenderer.bind(this) },
+    { headerName: 'Headcount', field: 'headcount', width: 370, cellRenderer: "CustomRendererOrgComponent", },
     
   ];
   public autoGroupColumnDef: ColDef = {
