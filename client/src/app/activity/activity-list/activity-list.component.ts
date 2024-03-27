@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonServiceService } from '../../common-service.service';
 import { ColDef, GridOptions } from 'ag-grid-community';
+import { CustomRendererActivityComponent } from '../custom-renderer-activity/custom-renderer-activity.component';
 
 @Component({
   selector: 'app-activity-list',
@@ -12,6 +13,9 @@ export class ActivityListComponent {
   groupDefaultExpanded = 1;
   color = '#39babf';
   viewType = 'activity';
+  components = {
+    CustomRendererActivityComponent: CustomRendererActivityComponent,
+  }
   gridOptions: GridOptions = {
     defaultColDef: {
       sortable: true,
@@ -139,13 +143,13 @@ export class ActivityListComponent {
   }
 
   columnDefs: any[] = [
-    { headerName: 'Name/Title', field: 'firstname', width: 350, headerClass: 'custom-header-class', cellRenderer: this.nameCellRenderer.bind(this), enableRowGroup: true, rowGroup: true },
+    { headerName: 'Name/Title', field: 'firstname', width: 350, headerClass: 'custom-header-class', cellRenderer: 'CustomRendererActivityComponent', enableRowGroup: true, rowGroup: true },
     {
-      headerName: 'Organization', field: 'organization.name', width: 350, cellRenderer: this.orgCellRenderer.bind(this)
+      headerName: 'Organization', field: 'organization.name', width: 350, cellRenderer: 'CustomRendererActivityComponent'
     },
-    { headerName: 'Office', field: 'office.name', width: 350, cellRenderer: this.officeCellRenderer.bind(this) },
+    { headerName: 'Office', field: 'office.name', width: 350, cellRenderer: 'CustomRendererActivityComponent' },
     {
-      headerName: 'Date', field: 'created', width: 370,
+      headerName: 'Date', field: 'created', width: 370,cellRenderer: 'CustomRendererActivityComponent'
     },
   ];
   public autoGroupColumnDef: ColDef = {

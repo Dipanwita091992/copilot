@@ -4,11 +4,12 @@ import { ActivityListComponent } from './activity-list/activity-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgGridModule } from 'ag-grid-angular';
+import { CustomRendererActivityComponent } from './custom-renderer-activity/custom-renderer-activity.component';
 
 
 
 @NgModule({
-  declarations: [ActivityListComponent],
+  declarations: [ActivityListComponent,CustomRendererActivityComponent],
   imports: [
     CommonModule,SharedModule, BrowserAnimationsModule, AgGridModule,
   ],
