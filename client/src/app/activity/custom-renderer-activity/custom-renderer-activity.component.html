@@ -1,4 +1,9 @@
 <div class="name" *ngIf="htmlTemplate === 'name'" (click)="onClick('name')">
+    <div class="action action-{{params.data.type}} {{params.data.type}}"><i *ngIf="params.data.type != 'skype' && params.data.type != 'linkedin'" class="fa fa-{{params.data.type}} "></i>
+        <i *ngIf="params.data.type == 'profile'" class="fa fa-user "></i>
+        <i *ngIf="params.data.type == 'email'"class="fa fa-envelope "></i>
+        <i *ngIf="params.data.type == 'skype'"class="fa fa-suitcase  "></i>
+        <i *ngIf="params.data.type == 'linkedin'"class="fa fa-suitcase   "></i></div>
     <div>
         <img class="picture"  [src]="pictureurl">
       </div>

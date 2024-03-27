@@ -1,3 +1,4 @@
+$historyitem-badge-size: 22px;
 .hover-effect:hover {
     text-decoration: underline;
     cursor: pointer;
@@ -13,5 +14,41 @@
   }
   .name{
     display: flex;
-    gap: 15px;
   }
+  .action-phone {
+    background-color: #20c659;
+    color: white;
+}
+.action-email {
+    background-color: #428c8a;
+    color: white;
+}
+.action-profile {
+    background-color: #4867aa;
+    color: white;
+}
+.action-linkedin {
+    background-color: #0077b5;
+    color: white;
+}
+.action-skype {
+    background-color: #00aff0;
+    color: white;
+}
+.action, .picture {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+
+.action {
+    border-radius: 50%;
+    font-size: 14px;
+    height: $historyitem-badge-size;
+    width: $historyitem-badge-size;
+    line-height: $historyitem-badge-size;
+    text-align: center;
+    z-index: 1;
+    align-self: center;
+    margin-right:-7px;
+}
