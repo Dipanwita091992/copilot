@@ -4,6 +4,7 @@ import { ColDef, GridOptions } from 'ag-grid-community';
 import { CreateEditModelComponent } from '../shared/create-model/create-edit-model.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { CustomRendererOfficeComponent } from './custom-renderer-office/custom-renderer-office.component';
 
 @Component({
   selector: 'app-office',
@@ -13,6 +14,9 @@ import { Router } from '@angular/router';
 export class OfficeComponent {private gridApi: any;
   private gridColumnApi: any;
   groupDefaultExpanded = 1;
+  components = {
+    CustomRendererOfficeComponent: CustomRendererOfficeComponent,
+  }
   color = '#39babf';
   viewType = 'office';
   gridOptions: GridOptions = {
@@ -94,11 +98,11 @@ export class OfficeComponent {private gridApi: any;
   }
 
   columnDefs: any[] = [
-    { headerName: 'Name', field: 'name', width: 550, headerClass: 'custom-header-class', cellRenderer: this.nameCellRenderer.bind(this), enableRowGroup: true, rowGroup: true },
+    { headerName: 'Name', field: 'name', width: 550, headerClass: 'custom-header-class', cellRenderer: 'CustomRendererOfficeComponent', enableRowGroup: true, rowGroup: true },
     {
       headerName: 'Address', field: 'address', width: 550, cellRenderer: this.addressCellRenderer.bind(this)
     },
-    { headerName: 'Headcount', field: 'headcount', width: 350, cellRenderer: this.headcountRenderer.bind(this) },
+    { headerName: 'Headcount', field: 'headcount', width: 350, cellRenderer: 'CustomRendererOfficeComponent' },
     
   ];
   public autoGroupColumnDef: ColDef = {

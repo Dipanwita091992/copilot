@@ -9,5 +9,5 @@
     </div>
     <ag-grid-angular  class="ag-theme-alpine" [rowData]="officeData"[suppressRowClickSelection]="true"
       [columnDefs]="columnDefs" [autoGroupColumnDef]="autoGroupColumnDef" [groupHeaderHeight]="50" [animateRows]="true"
-      [gridOptions]="gridOptions" [pagination]="true" (gridReady)="onGridReady($event)"></ag-grid-angular>
+      [gridOptions]="gridOptions" [components]="components" [pagination]="true" (gridReady)="onGridReady($event)"></ag-grid-angular>
   </div>

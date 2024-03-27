@@ -1,1 +1,13 @@
-<p>custom-renderer-office works!</p>
+<div class="name" *ngIf="htmlTemplate === 'name'" (click)="onClick('office')">
+    <div>
+        <h4 class="hover-effect main-text"
+            style="color: #39babf;margin:0;padding:0;font-weight: 500;font-family: inherit;line-height: unset;">
+            {{params.data.name}}</h4>
+
+    </div>
+</div>
+<div *ngIf="htmlTemplate === 'count'">
+    <h4 style="color: #39babf;margin:0;padding:0;font-size: 14px;font-family: inherit;line-height: unset;">
+        {{params.data?.headcount}} employees</h4>
+
+</div>
