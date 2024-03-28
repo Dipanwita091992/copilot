@@ -8,13 +8,21 @@ import { CommonServiceService } from '../../common-service.service';
 })
 export class HomeHeaderComponent {
   items: any;
-  time= new Date();
+  time: any
   manager:string = '../../../asset/1.jpg';
   loggedinUser:any;
+  currentTime: Date | undefined;
   constructor(private dataService: CommonServiceService)
    { 
     this.loggedinUser = this.dataService.sessionDetails.user;
+    this.time = setInterval(() => {
+      this.updateTime();
+    }, 0);
    }
+   ngOnDestroy() {
+    // Clear the interval when the component is destroyed
+    clearInterval(this.time);
+  }
 
    getGreeting(){
     let hour = this.time.getHours();
@@ -30,6 +38,9 @@ export class HomeHeaderComponent {
     return new Date();
    }
    ngDoCheck(){
-    this.getTime();
+    this.time = this.getTime();
    }
+   updateTime() {
+    this.currentTime = new Date();
+  }
 }

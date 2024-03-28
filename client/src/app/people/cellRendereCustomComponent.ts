@@ -25,8 +25,8 @@ export class OrgCellRendererComponent implements ICellRendererAngularComp {
   agInit(params: any): void {
     this.params = params;
     this.personId = this.params.data.id;
-    this.orgId = this.params.data.organization.id;
-    this.officeId = this.params.data.office.id;
+    this.orgId = this.params.data.organization?.id;
+    this.officeId = this.params.data.office?.id;
     if(this.params.colDef.headerName ==="Oraganization"){
       this.htmlTemplate = 'org'
     }if(this.params.colDef.headerName ==="Name/Title"){

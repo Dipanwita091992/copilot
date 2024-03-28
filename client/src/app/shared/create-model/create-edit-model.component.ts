@@ -178,7 +178,7 @@ export class CreateEditModelComponent {
     }
  
     this.commonservice.getData(payload).subscribe((res: any) => {
-      this.filterOfficelist = res[0].result.data
+      this.filterOfficelist = res[0]?.result?.data
       this.cancel();
     });
     console.log(this.formData);

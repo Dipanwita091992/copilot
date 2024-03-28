@@ -50,8 +50,11 @@ export class PersonComponent implements OnInit {
       this.dialog.closeAll();
     });
     this.route.queryParams.subscribe(params => {
-      this.filter([JSON.parse(params['data'])]);
-      this.isfilterRoute = true;
+      if(params['data']){
+        this.filter([JSON.parse(params['data'])]);
+        this.isfilterRoute = true;
+      }
+
     });
    }
   ngOnInit(): void {

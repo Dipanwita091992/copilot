@@ -21,9 +21,9 @@ export class CustomRendererOrgComponent {
  constructor(private router: Router) {    }
   agInit(params: any): void {
     this.params = params;
-    this.personId = this.params.data.manager.id;
+    this.personId = this.params.data.manager?.id;
     this.orgId = this.params.data.id;
-    this.officeId = this.params.data.manager.OfficeId;
+    this.officeId = this.params.data.manager?.OfficeId;
     if(this.params.colDef.headerName ==="Manager"){
       this.htmlTemplate = 'manager'
     }if(this.params.colDef.headerName ==="Name"){
