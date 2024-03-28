@@ -38,6 +38,7 @@ export class ActivityListComponent {
   actionListData: any[] = [];
   countryList: any;
   gridApi: any;
+  cachedFilterParams :any[]=[];
   filterOfficelist: any;
   filterOrglist: any;
   filterEmplist: any;
@@ -161,6 +162,7 @@ export class ActivityListComponent {
     this.gridColumnApi = params.columnApi;
   }
   filter(value: any) {
+    this.cachedFilterParams = value;
     let payload = [{
       action: "actions",
       data: [
@@ -203,7 +205,8 @@ export class ActivityListComponent {
 
   }
   handleSearch(value: any) {
-    this.filter(value);
+    this.cachedFilterParams.push(value[value.length-1]);
+    this.filter(this.cachedFilterParams);
 
   }
   nameCellRenderer(params: any) {
@@ -230,6 +233,7 @@ export class ActivityListComponent {
     <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;">${params.data.recipient.office.city},${params.data.recipient.office.country}</h5>`;
   }
   resetFilter() {
+    this.cachedFilterParams =[];
     this.getActivityData();
   }
   refreshData(data:any) {

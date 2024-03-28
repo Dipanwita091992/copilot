@@ -14,6 +14,7 @@ import { CustomRendererOfficeComponent } from './custom-renderer-office/custom-r
 export class OfficeComponent {private gridApi: any;
   private gridColumnApi: any;
   groupDefaultExpanded = 1;
+  cachedFilterParams:any[] = [];
   components = {
     CustomRendererOfficeComponent: CustomRendererOfficeComponent,
   }
@@ -114,6 +115,7 @@ export class OfficeComponent {private gridApi: any;
     this.gridColumnApi = params.columnApi;
   }
   filter(value: any) {
+    this.cachedFilterParams = value;
     let payload = [{
       action: "offices",
       data: [
@@ -144,7 +146,8 @@ export class OfficeComponent {private gridApi: any;
 
   }
   handleSearch(value: any) {
-    this.filter(value);
+    this.cachedFilterParams.push(value[value.length-1]);
+    this.filter(this.cachedFilterParams);
 
   }
   nameCellRenderer(params: any) {
@@ -170,6 +173,7 @@ export class OfficeComponent {private gridApi: any;
     return `<h4 style="color: ${this.color};margin:0;padding:0;font-size: 14px;font-family: inherit;">${params.data.headcount} employees</h4>`;
   }
   resetFilter() {
+    this.cachedFilterParams =[];
     this.getofficeData();
   }
   refreshData(data:any) {

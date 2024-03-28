@@ -45,6 +45,7 @@ export class PersonComponent implements OnInit {
   filterOfficelist: any;
   filterOrglist: any;
   isfilterRoute: boolean = false;
+  cachedFilterParams:any[] = [];
   constructor(private commonservice: CommonServiceService,public dialog: MatDialog,private router: Router,private route: ActivatedRoute) {
     this.commonservice.cancelEvent$.subscribe((data: any) => {
       this.dialog.closeAll();
@@ -109,7 +110,7 @@ export class PersonComponent implements OnInit {
       method: "filters",
     }]
     this.commonservice.getData(payload).subscribe((res: any) => {
-      this.filterOfficelist = res[0].result.data
+      this.filterOfficelist = res[0].result?.data
     });
    
 
@@ -146,6 +147,7 @@ export class PersonComponent implements OnInit {
     this.gridColumnApi = params.columnApi;
   }
   filter(value: any) {
+    this.cachedFilterParams = value;
     let payload = [{
       action: "people",
       data: [
@@ -176,7 +178,8 @@ export class PersonComponent implements OnInit {
 
   }
   handleSearch(value: any) {
-    this.filter(value);
+    this.cachedFilterParams.push(value[value.length-1]);
+    this.filter(this.cachedFilterParams);
 
   }
   nameCellRenderer(params: any) {
@@ -214,6 +217,7 @@ export class PersonComponent implements OnInit {
     this.filter(val);
   }
   resetFilter() {
+    this.cachedFilterParams =[];
     this.getpeopleData();
   }
   refreshData(data:any) {

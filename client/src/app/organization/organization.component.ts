@@ -14,6 +14,7 @@ export class OrganizationComponent {
   private gridApi: any;
   private gridColumnApi: any;
   groupDefaultExpanded = 1;
+  cachedFilterParams:any[] = [];
   components = {
     CustomRendererOrgComponent: CustomRendererOrgComponent,
   }
@@ -25,6 +26,7 @@ export class OrganizationComponent {
       filter: true,
 
     },
+    
     groupDisplayType: 'groupRows',
     rowGroupPanelShow: 'always',
     pivotPanelShow: 'always',
@@ -113,6 +115,7 @@ export class OrganizationComponent {
     this.gridColumnApi = params.columnApi;
   }
   filter(value: any) {
+    this.cachedFilterParams = value;
     let payload = [{
       action: "organizations",
       data: [
@@ -143,7 +146,8 @@ export class OrganizationComponent {
 
   }
   handleSearch(value: any) {
-    this.filter(value);
+    this.cachedFilterParams.push(value[value.length-1]);
+    this.filter(this.cachedFilterParams);
 
   }
   nameCellRenderer(params: any) {
@@ -170,6 +174,7 @@ export class OrganizationComponent {
     return `<h4 style="color: ${this.color};margin:0;padding:0;font-size: 14px;font-family: inherit;">${params.data?.headcount} employees</h4>`;
   }
   resetFilter() {
+    this.cachedFilterParams =[];
     this.getorgData();
   }
   refreshData(data:any) {
