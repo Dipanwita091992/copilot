@@ -18,6 +18,9 @@ export class HomeActivityComponent {
     this.router.navigate(['/main/personView', id]);
 
   }
+  handleNavigationToActivity(){
+    this.router.navigate(['/main/activity']);
+  }
 
 
 }

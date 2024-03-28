@@ -95,7 +95,7 @@ $historyitem-badge-size: 22px; // Adjust this value according to your needs
         }
     }
     .header-actuvity{
-        margin-left:8%;
+        margin-left:2%;
         color: #757575;
         font-size: 18px;
         line-height: 1.2;
@@ -107,5 +107,9 @@ $historyitem-badge-size: 22px; // Adjust this value according to your needs
 .empty{
     margin-left: 30% !important;
     margin-top: 20px !important;
+    color: gray !important;
+}
+.icon-history{
+    font-size: large;
     color: gray !important;
 }

@@ -17,7 +17,7 @@ $historyitem-badge-size: 22px;
 .detail-msg{
     display: flex;
     flex-direction: column;
-    margin-left: 55%;
+    margin-left: 48%;
 }
 .fa-sitemap{
     font-size: xxx-large;
@@ -42,6 +42,7 @@ $historyitem-badge-size: 22px;
 }
 .header{
     padding: 5px;
+    width:75%;
 }
 .header-line{
     position: absolute;
@@ -67,7 +68,7 @@ $historyitem-badge-size: 22px;
         right: 0;
         /* top: 100%; */
         z-index: -1;
-        bottom: 515px;
+        bottom: 87%;
     }
 }
 .content-str{
@@ -92,7 +93,7 @@ $historyitem-badge-size: 22px;
     width:60%;
     padding: 10px;
     /* height: 100px; */
-    height: 175px;
+    height: auto;
     background-color: rgb(245, 245, 245)
 }
 .action{
@@ -115,12 +116,13 @@ $historyitem-badge-size: 22px;
     align-items: unset;
     line-height: 1.9;
     margin-left: 7px;
-    color: black !important;
+    color: black;
 
 }
 .flex{
     display: flex;
     gap: 5px;
+    flex-wrap: wrap;
 }
 .action-header{
     display: flex;

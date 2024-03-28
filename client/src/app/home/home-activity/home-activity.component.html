@@ -1,7 +1,9 @@
-<!-- <p>home-activity works!</p> -->
 
 <div class="historyview" *ngIf="activityData?.length; else empty">
-    <div class="header-actuvity">Recent Activity</div>
+    <div style="display: flex;justify-content: space-between;">
+      <div  class="header-actuvity">Recent Activity</div>
+      <div style="margin-right: 2%;cursor: pointer;" (click)="handleNavigationToActivity()"> <i class="icon-history fa fa-history fa-fw"></i></div>
+    </div>
     <div class="history-item-wrapper" (click)="navigateToPerson(item.recipient.id)" *ngFor="let item of activityData">
       <div class="history-visual">
         <div class="action action-{{item.type}} {{item.type}}"><i *ngIf="item.type != 'skype' && item.type != 'linkedin'" class="fa fa-{{item.type}} "></i>
@@ -9,7 +11,6 @@
             <i *ngIf="item.type == 'email'"class="fa fa-envelope "></i>
             <i *ngIf="item.type == 'skype'"class="fa fa-suitcase  "></i>
             <i *ngIf="item.type == 'linkedin'"class="fa fa-suitcase   "></i></div>
-        <!-- <div class="picture large" [style.background-image]="'url(' + item.recipient.picture + ')'"></div> -->
         <div>
           <img class="picture"  [src]="'http://localhost:3000/'+item.recipient.picture">
         </div>

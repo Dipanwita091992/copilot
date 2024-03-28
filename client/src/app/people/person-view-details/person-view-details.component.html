@@ -25,7 +25,7 @@
 
             </div>
         </div>
-        <div style="align-self: center;" (click)="handleEdit(personDetails.id)"><i class="fa fa-pencil fa-fw"></i>Edit</div>
+        <div style="align-self: center;cursor: pointer;" (click)="handleEdit(personDetails.id)"><i class="fa fa-pencil fa-fw"></i>Edit</div>
     </div>
     <div class="content">
 
@@ -94,7 +94,7 @@
         <div class="action">
             <div class="action-header">
                 <h2>Recent Activity</h2>
-                <i class="icon-right fa fa-history fa-fw"></i>
+                <i style="color: #7d8f8f;" class="icon-right fa fa-history fa-fw"></i>
             </div>
             <div>
                 <app-home-activity></app-home-activity>
@@ -121,7 +121,7 @@
                 <div style="display: flex; gap:5px" (click)="goToEmployeeListForOrg(personDetails.organization.id)">
                     <i class=" icon-right fa fa-users fa-fw"></i>
                     <span>
-                        <h3 style="margin-top: 7px; font-size: large;"><b>{{personDetails.organization.headcount}}</b></h3>
+                        <h3 style="margin-top: 7px; font-size: large;"><b>{{personDetails.organization.headcount-1}}</b></h3>
                     </span>
                 </div>
             </div>

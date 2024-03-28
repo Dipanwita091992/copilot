@@ -15,14 +15,14 @@
             </div>
   
             <div class="footer-modal-action-btngrp">
-                <button class="btn" type="submit" (click)="submitForm(true)">Save</button>
+                <button class="btn" type="submit" (click)="submitForm(true,null)">Save</button>
                 <button class="btn cancel"  (click)="redirectTo()">Cancel</button>
             </div>
      
     </div>
     <mat-stepper [linear]="isLinear" #stepper [ngClass]="{ 'editModeStepper': isEditMode}" >
-        <form #myForm="ngForm" (ngSubmit)="submitForm()">
-            <mat-step>
+        <form #myForm="ngForm" (ngSubmit)="submitForm(false,myForm)" >
+            <mat-step >
                 <ng-template matStepLabel>
                     <div class="stepper-menu">
                         <div>
@@ -35,7 +35,7 @@
                 </ng-template>
                 <div class="form-field">
                     <label for="name">First Name*</label>
-                    <input type="text" id="firstname" name="firstname" [(ngModel)]="formData.firstname" required>
+                    <input type="text" id="firstname" name="firstname" [(ngModel)]="formData.firstname" required >
                 </div>
                 <div class="form-field">
 
@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-field">
                     <label for="name">User Name*</label>
-                    <input type="text" id="username" name="userName" [(ngModel)]="formData.username" required>
+                    <input type="text" id="username" name="userName" [(ngModel)]="formData.username" required >
 
                 </div>
 
@@ -123,7 +123,7 @@
                 <div class="form-field">
                     <label for="name">Office*</label>
                     <!-- <input type="password" id="password" name="password" [(ngModel)]="formData.password" required> -->
-                    <select  [(ngModel)]="formData.officeId" id="office" name="officeId" >
+                    <select  [(ngModel)]="formData.officeId" id="office" name="officeId" required >
                         <option value="" disabled selected>Select Office</option>
                         <option *ngFor="let option of filterOfficelist" [value]="option.value">{{ option.label }}</option>
                     </select>
@@ -131,7 +131,7 @@
                 <div class="form-field">
                     <label for="email">Organization*</label>
                     <!-- <input type="password" id="confirmpwd" name="confirmpwd" [(ngModel)]="confirmpwd" required> -->
-                    <select  [(ngModel)]="formData.organizationId" id="org" name="orgid">
+                    <select  [(ngModel)]="formData.organizationId" id="org" name="orgid" required>
                         <option value="" disabled selected>Select Organization</option>
                         <option *ngFor="let option of filterOrglist" [value]="option.value">{{ option.label }}</option>
                     </select>
@@ -148,7 +148,7 @@
                 </div>
       
                 <div class="footer-modal-action-btngrp">
-                    <button class="btn" type="submit" (click)="submitForm(false)">Create</button>
+                    <button class="btn" type="submit" (click)="submitForm(false,myForm)">Create</button>
                     <button class="btn cancel"  (click)="cancel()">Cancel</button>
                 </div>
          
@@ -168,13 +168,13 @@
     <div class="modal-footer edit-action" *ngIf="isEditMode">
   
             <div class="footer-modal-action-btngrp">
-                <button class="btn" type="submit" (click)="submitForm(true)">Save</button>
+                <button class="btn" type="submit" (click)="submitForm(true,null)">Save</button>
                 <button class="btn cancel"  (click)="redirectTo()">Cancel</button>
             </div>
      
     </div>
     <div>
-        <form #myForm="ngForm" (ngSubmit)="submitForm()">
+        <form #myForm="ngForm" (ngSubmit)="submitForm(false,myForm)">
             <div class="form-field">
                 <label for="officeName">Name*</label>
                 <input type="text" id="officeName" name="officeName" [(ngModel)]="formData.name" required>
@@ -207,7 +207,7 @@
         <div *ngIf="!isEditMode" class="modal-footer" style="margin-top:10%;justify-content: end;">
       
                 <div class="footer-modal-action-btngrp">
-                    <button class="btn" type="submit" (click)="submitForm(false)">Create</button>
+                    <button class="btn" type="submit" (click)="submitForm(false,myForm)">Create</button>
                     <button class="btn cancel"  (click)="cancel()">Cancel</button>
                 </div>
          
@@ -226,13 +226,13 @@
     <div class="modal-footer edit-action" *ngIf="isEditMode">
   
             <div class="footer-modal-action-btngrp">
-                <button class="btn" type="submit" (click)="submitForm(true)">Save</button>
+                <button class="btn" type="submit" (click)="submitForm(true,null)">Save</button>
                 <button class="btn cancel"  (click)="redirectTo()">Cancel</button>
             </div>
      
     </div>
     <div>
-        <form #myForm="ngForm" (ngSubmit)="submitForm()">
+        <form #myForm="ngForm" (ngSubmit)="submitForm(false,myForm)">
             <div class="form-field">
                 <label for="officename">Name*</label>
                 <input type="text" id="officename" name="officename" [(ngModel)]="formData.name" required>
@@ -240,7 +240,7 @@
             </div>
             <div class="form-field">
                 <label for="managerid">Manager*</label>
-                <select  [(ngModel)]="formData.manager_id" id="managerid" name="managerid" >
+                <select  [(ngModel)]="formData.manager_id" id="managerid" name="managerid" required>
                     <option value="" disabled selected>Select Manager</option>
                     <option *ngFor="let option of managerList" [value]="option.value">{{ option.label }}</option>
                 </select>
@@ -253,7 +253,7 @@
         <div *ngIf="!isEditMode" class="modal-footer" style="margin-top:10%;justify-content: end;">
       
                 <div class="footer-modal-action-btngrp">
-                    <button class="btn" type="submit" (click)="submitForm(false)">Create</button>
+                    <button class="btn" type="submit" (click)="submitForm(false,myForm)">Create</button>
                     <button class="btn cancel"  (click)="cancel()">Cancel</button>
                 </div>
          

@@ -1,4 +1,4 @@
-import { Component, Inject, Optional } from '@angular/core';
+import { Component, Inject, Optional, ViewChild } from '@angular/core';
 import { MatStepper } from '@angular/material/stepper';
 import { CreatePerson } from '../models/create-person';
 import { CommonServiceService } from '../../common-service.service';
@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Office } from '../models/office.modal';
 import { Organization } from '../models/org';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-create-model',
@@ -29,7 +30,8 @@ export class CreateEditModelComponent {
   personId:string='';
   officeId: string = '';
   orgId: string = '';
-
+  isInvalid: any;
+  @ViewChild('myForm') myForm: NgForm | undefined;
   constructor(private commonservice: CommonServiceService,private route: ActivatedRoute,private location: Location,
     @Optional()@Inject(MAT_DIALOG_DATA) public data: any
     ) { 
@@ -143,7 +145,13 @@ export class CreateEditModelComponent {
   goToPrevious(stepper?: MatStepper): void {
     stepper?.previous();
   }
-  submitForm(edit?: boolean) {
+  submitForm(edit?: boolean,form?: any) {
+  this.isInvalid = form.form.valid
+  this.myForm?.form.markAllAsTouched();
+    if (form.invalid) {
+      // Handle invalid form submission
+      return;
+    }
     let payload;
     switch (this.type) {
       case 'people':

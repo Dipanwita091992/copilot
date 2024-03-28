@@ -12,17 +12,17 @@
             <!-- <div class="picture icon" style="background-image: url({{loggedinUser.picture}})"></div> -->
             <img class="picture icon"  [src]="'http://localhost:3000/'+loggedinUser.organization.manager.picture" alt="Dynamic Image">
           <div class="title">Manager</div>
-          <a class="link" >{{loggedinUser.organization.manager.firstname}}</a>
+          <a class="link" (click)="handleNavigation(loggedinUser.organization.manager.id,'name')" >{{loggedinUser.organization.manager.firstname}}</a>
         </div>
         <div class="item" >
           <span class="icon fa fa-sitemap"></span>
           <div class="title">Organization</div>
-          <a class="link" >{{loggedinUser.organization.name}}</a>
+          <a class="link" (click)="handleNavigation(loggedinUser.organization.id,'org')" >{{loggedinUser.organization.name}}</a>
         </div>
         <div class="item" >
           <span class="icon fa fa-globe"></span>
           <div class="title">Office</div>
-          <a class="link" >{{loggedinUser.office.name}}</a>
+          <a class="link" (click)="handleNavigation(loggedinUser.office.id,'office')" >{{loggedinUser.office.name}}</a>
         </div>
       </div>
       <div class="header-clock">

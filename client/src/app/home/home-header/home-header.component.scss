@@ -95,9 +95,15 @@ $neutral-medium-dark-color: #757575;
             }
         }
 
-        .title, .link {
+        .link {
+            color: $base-color;
+            &:hover {
           //  @include ellipsis;
+          cursor: pointer;
+          color: $base-color;
+          text-decoration: underline;
         }
+    }
 
         .title {
             color: $neutral-medium-dark-color;
@@ -120,7 +126,7 @@ $neutral-medium-dark-color: #757575;
         padding-bottom: 16px;
         text-align: right;
         margin-top: auto !important;
-        margin-right: 3%;
+        margin-right: 7%;
         .date {
             color: $base-color;
             font-size: small;
