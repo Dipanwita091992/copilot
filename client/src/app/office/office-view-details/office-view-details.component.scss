@@ -126,3 +126,54 @@
     justify-content: space-between;
     width: 100%;
 }
+.outer-container {
+    margin-left: 50px;
+    position: relative;
+  }
+  
+  .edit-icon {
+    align-self: center;
+    cursor: pointer;
+  }
+  
+  .google-maps .map-size {
+    width: 100%;
+    height: 300px;
+  }
+  
+  .details-section .details-title {
+    color: #7d8f8f;
+  }
+  
+  .details-section .address-label {
+    color: #39babf;
+    padding-bottom: 0;
+  }
+  
+  .details-section .address-value,
+  .details-section .city-value {
+    color: #7d8f8f;
+    margin-bottom: 0;
+  }
+  
+  .action .icon-right {
+    color: #7d8f8f;
+  }
+  
+  .emp-margin {
+    margin-left: 24px;
+  }
+  
+  .emp-count {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .emp-title {
+    color: #7d8f8f;
+  }
+  
+  .emp-number {
+    margin-top: 7px;
+    font-size: large;
+  }

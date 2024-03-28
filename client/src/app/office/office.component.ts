@@ -159,10 +159,9 @@ export class OfficeComponent {private gridApi: any;
 
     return `  <style>
     .hover-effect:hover {
-      text-decoration: underline;
-      cursor: pointer;
+  
     }
-  </style><h4 class="hover-effect"  style="cursor: pointer;;margin:0;padding:0;font-weight: 500;font-family: inherit;">${params.data.city} ${params.data.country}</h4>
+  </style><h4 class="hover-effect"  style="margin:0;padding:0;font-weight: 500;font-family: inherit;">${params.data.city} ${params.data.country}</h4>
     <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;"><span>${params.data.address}</span>
     </h5>`;
   }

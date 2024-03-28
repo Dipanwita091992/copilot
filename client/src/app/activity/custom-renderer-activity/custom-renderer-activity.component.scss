@@ -52,3 +52,20 @@ $historyitem-badge-size: 22px;
     align-self: center;
     margin-right:-7px;
 }
+.custom-text {
+    color: #39babf;
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    font-family: inherit;
+  }
+  
+  .custom-subtext {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    font-family: sans-serif;
+  }
+  .line-height{
+    line-height: unset!important;
+  }

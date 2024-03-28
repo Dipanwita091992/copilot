@@ -1,34 +1,31 @@
 <div class="name" *ngIf="htmlTemplate === 'name'" (click)="onClick('name')">
-    <div class="action action-{{params.data.type}} {{params.data.type}}"><i *ngIf="params.data.type != 'skype' && params.data.type != 'linkedin'" class="fa fa-{{params.data.type}} "></i>
+    <div class="action action-{{params.data.type}} {{params.data.type}}">
+        <i *ngIf="params.data.type != 'skype' && params.data.type != 'linkedin'" class="fa fa-{{params.data.type}} "></i>
         <i *ngIf="params.data.type == 'profile'" class="fa fa-user "></i>
         <i *ngIf="params.data.type == 'email'"class="fa fa-envelope "></i>
         <i *ngIf="params.data.type == 'skype'"class="fa fa-suitcase  "></i>
-        <i *ngIf="params.data.type == 'linkedin'"class="fa fa-suitcase   "></i></div>
+        <i *ngIf="params.data.type == 'linkedin'"class="fa fa-suitcase   "></i>
+    </div>
     <div>
         <img class="picture"  [src]="pictureurl">
-      </div>
+    </div>
     <div>
-        <h4 class="hover-effect main-text" style="color:#39babf;margin:0;padding:0;font-weight: 500;font-family: inherit;">{{params.data.recipient.firstname}} {{params.data.recipient.lastname}}</h4>
-        <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;">{{params.data.recipient.title}}</h5>
-
+        <h4 class="hover-effect main-text custom-text">{{params.data.recipient.firstname}} {{params.data.recipient.lastname}}</h4>
+        <h5 class="custom-subtext">{{params.data.recipient.title}}</h5>
     </div>
 </div>
 <div class="name" *ngIf="htmlTemplate === 'office'" (click)="onClick('office')">
     <div>
-        <h4  class="hover-effect main-text" style="color: #39babf;margin:0;padding:0;font-weight: 500;font-family: inherit;">{{params.data.recipient.office.name}}</h4>
-        <h5 style="margin:0;padding:0;font-size: 12px;font-family: sans-serif;">{{params.data.recipient.office.city}},{{params.data.recipient.office.country}}</h5>
-
+        <h4 class="hover-effect main-text custom-text">{{params.data.recipient.office.name}}</h4>
+        <h5 class="custom-subtext">{{params.data.recipient.office.city}},{{params.data.recipient.office.country}}</h5>
     </div>
 </div>
 <div class="name" *ngIf="htmlTemplate === 'org'" (click)="onClick('org')">
     <div>
-        <h4 class="hover-effect"  style="color: #39babf;cursor: pointer;;margin:0;padding:0;font-weight: 500;font-family: inherit;line-height: unset;">{{params.data.recipient.organization.name}}</h4>
-    
-
+        <h4 class="hover-effect custom-text line-height">{{params.data.recipient.organization.name}}</h4>
     </div>
 </div>
 <div *ngIf="htmlTemplate === 'count'">
-    <h4 style="margin:0;padding:0;font-size: 14px;font-family: inherit;line-height: unset;">
+    <h4 class="custom-subtext">
         {{params.data?.created|date:'yyyy-MM-d, h:mm'}}</h4>
-
 </div>

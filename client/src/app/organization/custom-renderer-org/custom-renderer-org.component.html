@@ -2,7 +2,7 @@
     <h4 class="hover-effect" (click)="onClick('name')">{{params.data.manager?.firstname}} {{params.data.manager?.lastname}}</h4>
     <h5 (click)="onClick('office')">
         <span class="hover-effect">{{params.data.manager?.office?.name}}</span>
-        <span>{{params.data.manager?.office?.city}}</span>
+        <span >{{params.data.manager?.office?.city}}</span>
         <span *ngIf="params.data.manager?.office">({{params.data.manager?.office?.country}})</span>
     </h5>
 </div>

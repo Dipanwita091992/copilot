@@ -146,9 +146,9 @@ export class CreateEditModelComponent {
     stepper?.previous();
   }
   submitForm(edit?: boolean,form?: any) {
-  this.isInvalid = form.form.valid
-  this.myForm?.form.markAllAsTouched();
-    if (form.invalid) {
+    // this.isInvalid = form?.form?.valid
+  this.myForm?.form?.markAllAsTouched();
+    if (form?.invalid) {
       // Handle invalid form submission
       return;
     }
@@ -186,8 +186,13 @@ export class CreateEditModelComponent {
     }
  
     this.commonservice.getData(payload).subscribe((res: any) => {
-      this.filterOfficelist = res[0]?.result?.data
-      this.cancel();
+      this.filterOfficelist = res[0]?.result?.data;
+      if(!edit){
+        this.cancel();
+      }else{
+         this.redirectTo();
+      }
+      
     });
     console.log(this.formData);
   }

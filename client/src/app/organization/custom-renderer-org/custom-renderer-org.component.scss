@@ -1,5 +1,5 @@
 .hover-effect {
-  color: #39babf;
+  color: #39babf !important;
   cursor: pointer;
   &:hover {
     text-decoration: underline;
@@ -35,4 +35,8 @@ h5 span {
   font-size: 14px;
   font-family: inherit;
   line-height: unset;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }
